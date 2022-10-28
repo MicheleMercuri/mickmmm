@@ -1,3 +1,11 @@
+
+##############################################################################################################
+#### il Package originale è stato scaricato da https://hassiohelp.eu/2019/03/02/controllo-consumi-costi/  ####
+####                sono state aggiornate le automazioni non più funzionanti                              ####
+####                   dopo gli ultimi aggiornamenti di HA del 2021/2022                                  ####
+####                     -----------------------------------------------                                  ####
+##############################################################################################################
+
 ########## sensori monitor consumi ######
 utility_meter:
   consumo_giornaliero:
