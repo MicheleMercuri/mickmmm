@@ -1,0 +1,148 @@
+######## This code need HA Multiscrape Component https://github.com/danieldotnl/ha-multiscrape ########
+######## Scrape Monthly Average PUN from GME www.mercatoelettrico.org ########
+multiscrape:
+  - resource: 'https://www.mercatoelettrico.org/it/Statistiche/ME/DatiSintesi.aspx'
+    name: PUN MPG 
+    scan_interval: 30
+    log_response: true
+    form_submit:
+      submit_once: True
+      resource: 'https://www.mercatoelettrico.org/It/Tools/Accessodati.aspx?ReturnUrl=%2fIt%2fStatistiche%2fME%2fDatiSintesi.aspx'
+      select: "#form1"
+      input:
+        'ctl00$ContentPlaceHolder1$CBAccetto1': 'on'
+        'ctl00$ContentPlaceHolder1$CBAccetto2': 'on'
+        'ctl00$ContentPlaceHolder1$Button1': 'Accetto'
+      input_filter:
+        - 'ctl00$ContentPlaceHolder1$Button2'
+        - 'ctl00$vai'
+        - 'ctl00$LinkButton2'
+        - 'ctl00$LoginButton'
+    sensor:
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_1'
+        name: 'January'
+        unique_id: jan_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_2'
+        name: 'February'
+        unique_id: feb_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_3'
+        name: 'March'
+        unique_id: mar_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_4'
+        name: 'April'
+        unique_id: apr_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_5'
+        name: 'May'
+        unique_id: may_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_6'
+        name: 'June'
+        unique_id: june_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_7'
+        name: 'July'
+        unique_id: july_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_8'
+        name: 'August'
+        unique_id: aug_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_9'
+        name: 'September'
+        unique_id: sept_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_10'
+        name: 'October'
+        unique_id: oct_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_11'
+        name: 'November'
+        unique_id: nov_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_GridView2_lblMedia2_12'
+        name: 'December'
+        unique_id: dec_pun_avg
+        unit_of_measurement: '€/kWh'
+        icon: mdi:transmission-tower-import
+        device_class: monetary
+        state_class: measurement
+        value_template: '{{ (value | replace (",", ".") | float / 1000) | round(6) }}'
+        on_error:
+          value: last
+      - select: '#ContentPlaceHolder1_Label2'
+        name: 'Last Update'
+        unique_id: last_upd_pun_avg
+        icon: mdi:clipboard-text-clock
+        value_template: '{{ value | replace ("aggiornato al ", "") }}'
+        on_error:
+          value: last
