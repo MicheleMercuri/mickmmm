@@ -3,7 +3,7 @@
 multiscrape:
   - resource: 'https://www.mercatoelettrico.org/it/Statistiche/ME/DatiSintesi.aspx'
     name: PUN MPG 
-    scan_interval: 30
+    scan_interval: 3600
     log_response: true
     form_submit:
       submit_once: True
