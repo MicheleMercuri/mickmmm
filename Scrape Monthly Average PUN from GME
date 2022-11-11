@@ -1,5 +1,5 @@
 ######## This code need HA Multiscrape Component https://github.com/danieldotnl/ha-multiscrape ########
-######## Scrape Monthly Average PUN from GME www.mercatoelettrico.org ########
+######## Scrape Monthly Average PUN from GME Site www.mercatoelettrico.org ########
 multiscrape:
   - resource: 'https://www.mercatoelettrico.org/it/Statistiche/ME/DatiSintesi.aspx'
     name: PUN MPG 
