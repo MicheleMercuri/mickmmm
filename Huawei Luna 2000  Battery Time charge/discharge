@@ -1,0 +1,268 @@
+####################### Huawei Luna2000 Battery Time Left Till End Discharge ######################################
+template:
+  - sensor:
+      # set 'energy' to luna Rated capacity in kWh and 'reserve' to End-of-discharge SOC x/100
+      - name: "Luna2000 Time Left To End Disc."
+        unique_id: battery_time_left
+        state: >-
+          {% set percent = states('sensor.battery_state_of_capacity') | float(1) /100 %}
+          {% set energy = 20.0 %}
+          {% set reserve = 0.1 %}
+          {% set charge = (percent - reserve) * energy %}
+          {% set current_power = states('sensor.battery_power_left') | float(0) %}
+          {% set decimal_hours = charge / current_power %}
+          {% set minutes = (decimal_hours % 1 * 60) | round(0) %}
+            {{ decimal_hours | int(0) ~ 'h ' ~ minutes ~ 'min' }}
+      # set 'energy' to luna Rated capacity in kWh and 'reserve' to End-of-charge SOC x/100
+      - name: "Luna2000 Time To Full Charge"
+        unique_id: battery_time_full_charge
+        state: >-
+          {% set percent = states('sensor.battery_state_of_capacity') | float(1) /100 %}
+          {% set energy = 20.0 %}
+          {% set reserve = 0.1 %}
+          {% set charge = (percent - reserve) * energy %}
+          {% set current_power = states('sensor.power_batt_ch_kwp') | float(0) %}
+          {% set decimal_hours = (energy - charge) / (current_power / 1000) %}
+          {% set minutes = (decimal_hours % 1 * 60) | round(0) %}
+            {{ decimal_hours | int(0) ~ 'h ' ~ minutes ~ 'min' }}
+  - sensor:
+      - name: "Luna2000 kWh Left"
+        unique_id: battery_kwh_left
+        unit_of_measurement: "kWh"
+        state: >-
+          {% set percent = states('sensor.battery_state_of_capacity') | float(2) %}
+          {% set energy = 20.0 %}
+          {% set reserve = 10 %}
+          {% set charge = ((percent - reserve)/100) * energy | round(2) %}
+          {{ 0 if charge < 0 else charge }}
+
+#################################################################################################
+################################ Custom Button Card for Lovelace ################################
+#################################################################################################
+type: custom:button-card
+entity: sensor.battery_state_of_capacity
+layout: name_state
+name: Batt. Time Left
+show_state: false
+show_label: true
+state:
+  - value: 10
+    operator: <
+    color: rgb(255,0,0)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-outline';
+        return 'mdi:battery-outline';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 20
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-10';
+        return 'mdi:battery-10';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 30
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-20';
+        return 'mdi:battery-20';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 40
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-30';
+        return 'mdi:battery-30';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 50
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-40';
+        return 'mdi:battery-40';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 60
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-50';
+        return 'mdi:battery-50';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 70
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-60';
+        return 'mdi:battery-60';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 80
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-70';
+        return 'mdi:battery-70';
+      ]]]
+    styles: null
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 90
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-80';
+        return 'mdi:battery-80';
+      ]]]
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 100
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-90';
+        return 'mdi:battery-90';
+      ]]]
+    styles: null
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+  - value: 101
+    operator: <
+    color: rgb(229, 190, 1)
+    name: |
+      [[[
+        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+      ]]]
+    icon: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+          return 'mdi:battery-charging-100';
+        return 'mdi:battery';
+      ]]]
+    styles: null
+    label: |
+      [[[
+        if (states['sensor.charge_discharge_power'].state > '0')
+         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+         return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
+      ]]]
+styles:
+  label:
+    - font-size: 11px
+    - color: gold
+  name:
+    - font-size: 11px
+  card:
+    - height: 120px
