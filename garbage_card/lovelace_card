@@ -1,0 +1,212 @@
+type: vertical-stack
+cards:
+  - camera_view: auto
+    type: picture-glance
+    title: 'Raccolta Differenziata Lamezia '
+    image: local/waste_home.jpg
+    entities: []
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    theme: Google Dark Theme
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/garbage/blank.jpg
+        elements:
+          - type: image
+            title: Indifferenziata
+            entity: sensor.indifferenziata
+            image: /local/garbage/indiff_g2.jpg
+            state_image:
+              tomorrow: /local/garbage/indiff1.jpg
+              today: /local/garbage/indiff_anim.gif
+            style:
+              left: 50%
+              top: 50%
+              width: 103%
+          - type: state-label
+            entity: sensor.indifferenziata
+            style:
+              color: white
+              left: 50%
+              top: 89.5%
+              width: 100%
+              font-size: 120%
+              text-align: center
+          - type: state-label
+            entity: sensor.indifferenz_fake
+            style:
+              color: white
+              left: 50%
+              top: 10%
+              width: 100%
+              font-size: 120%
+              text-align: center
+      - type: picture-elements
+        image: /local/garbage/blank.jpg
+        elements:
+          - type: image
+            title: Organico - Umido
+            entity: sensor.organico_umido
+            image: /local/garbage/umido1_g2.jpg
+            state_image:
+              tomorrow: /local/garbage/umido11.jpg
+              today: /local/garbage/umido_anim.gif
+            style:
+              left: 50%
+              top: 50%
+              width: 103%
+          - type: state-label
+            entity: sensor.organico_umido
+            style:
+              color: white
+              left: 50%
+              top: 89.5%
+              width: 100%
+              font-size: 120%
+              text-align: center
+          - type: state-label
+            entity: sensor.umido_fake
+            style:
+              color: white
+              left: 50%
+              top: 10%
+              width: 100%
+              font-size: 120%
+              text-align: center
+      - type: picture-elements
+        image: /local/garbage/blank.jpg
+        elements:
+          - type: image
+            entity: sensor.plastica_e_metallo
+            title: Plastica
+            image: /local/garbage/plastica_g1.jpg
+            state_image:
+              tomorrow: /local/garbage/plastica1.jpg
+              today: /local/garbage/plastica_anim.gif
+            style:
+              left: 50%
+              top: 50%
+              width: 103%
+          - type: state-label
+            entity: sensor.plastica_e_metallo
+            style:
+              color: white
+              left: 50%
+              top: 89.5%
+              width: 100%
+              font-size: 120%
+              text-align: center
+          - type: state-label
+            entity: sensor.plastica_fake
+            style:
+              color: white
+              left: 50%
+              top: 10%
+              width: 100%
+              font-size: 120%
+              text-align: center
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/garbage/blank.jpg
+        elements:
+          - type: image
+            title: Vetro
+            entity: sensor.vetro
+            image: /local/garbage/vetro_g2.jpg
+            state_image:
+              tomorrow: /local/garbage/vetro1.jpg
+              today: /local/garbage/vetro_anim.gif
+            style:
+              left: 50%
+              top: 50%
+              width: 103%
+          - type: state-label
+            entity: sensor.vetro
+            style:
+              color: white
+              left: 50%
+              top: 89.5%
+              width: 100%
+              font-size: 120%
+              text-align: center
+          - type: state-label
+            entity: sensor.vetro_fake
+            style:
+              color: white
+              left: 50%
+              top: 10%
+              width: 100%
+              font-size: 120%
+              text-align: center
+      - type: picture-elements
+        title: null
+        image: /local/garbage/blank.jpg
+        elements:
+          - type: image
+            title: Carta
+            entity: sensor.carta
+            image: /local/garbage/carta_g2.jpg
+            state_image:
+              tomorrow: /local/garbage/carta1.jpg
+              today: /local/garbage/carta_anim.gif
+            style:
+              left: 50%
+              top: 50%
+              width: 103%
+          - type: state-label
+            entity: sensor.carta
+            style:
+              color: white
+              left: 50%
+              top: 89.5%
+              width: 100%
+              font-size: 120%
+              text-align: center
+          - type: state-label
+            entity: sensor.carta_fake
+            style:
+              color: white
+              left: 50%
+              top: 10%
+              width: 100%
+              font-size: 120%
+              text-align: center
+      - type: picture-elements
+        image: /local/garbage/blank.jpg
+        elements:
+          - type: image
+            title: Carta
+            entity: sensor.metalli
+            image: /local/garbage/metallo_g1.jpg
+            state_image:
+              tomorrow: /local/garbage/metallo1.jpg
+              today: /local/garbage/metallo_anim.gif
+            style:
+              left: 50%
+              top: 50%
+              width: 103%
+          - type: state-label
+            entity: sensor.metalli
+            style:
+              color: white
+              left: 50%
+              top: 89.5%
+              width: 100%
+              font-size: 120%
+              text-align: center
+          - type: state-label
+            entity: sensor.metallo_fake
+            style:
+              color: white
+              left: 50%
+              top: 10%
+              width: 100%
+              font-size: 120%
+              text-align: center
+  - type: custom:button-card
+    color_type: card
+    color: rgb(210, 210, 210)
