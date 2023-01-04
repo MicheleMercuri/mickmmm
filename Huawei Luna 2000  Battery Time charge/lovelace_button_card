@@ -13,7 +13,7 @@ state:
     color: rgb(255,0,0)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -32,7 +32,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -51,7 +51,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -70,7 +70,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -89,7 +89,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -108,7 +108,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -127,7 +127,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -146,7 +146,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -166,7 +166,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -185,7 +185,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
@@ -205,7 +205,7 @@ state:
     color: rgb(229, 190, 1)
     name: |
       [[[
-        return 'Batt. kWh: ' +  ' ' +  states['sensor.luna2000_kwh_left'].state;
+        return 'Batt. ' +  ' ' +  states['sensor.luna2000_kwh_left'].state + ' kWh';
       ]]]
     icon: |
       [[[
