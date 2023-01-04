@@ -1,5 +1,16 @@
-####################### Huawei Luna2000 Battery Time Left Till End Discharge ######################################
+####################### Luna2000 Battery Time Left Till End Discharge ######################################
 template:
+  - sensor:
+      - name: "Battery Power Left"
+        unique_id: battery_power_left
+        unit_of_measurement: "kW"
+        state: >-
+          {% set inpower = states('sensor.charge_discharge_power')|float(2) %}
+          {% if inpower < 0 %}
+            {{ (inpower * -1) / 1000 }}
+          {% else %}
+            {{ '%.2f' | format(states('sensor.average_kw_discharged_from_battery_last_24h') | float / 1000 ) }}
+          {% endif %}
   - sensor:
       # set 'energy' to luna Rated capacity in kWh and 'reserve' to End-of-discharge SOC x/100
       - name: "Luna2000 Time Left To End Disc."
@@ -35,3 +46,14 @@ template:
           {% set reserve = 10 %}
           {% set charge = ((percent - reserve)/100) * energy | round(2) %}
           {{ 0 if charge < 0 else charge }}
+# Average of Discharge Power in last 24h used if battery is charging to estimate duration
+# assuming last 24h of Discharge power
+sensor:
+  - platform: statistics
+    name: "Average kW discharged from Battery Last 24h"
+    entity_id: sensor.power_batt_disch_kwp
+    state_characteristic: average_linear
+    max_age:
+      hours: 24
+    sampling_size: 17300
+    precision: 3
