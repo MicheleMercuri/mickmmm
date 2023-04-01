@@ -216,8 +216,8 @@ state:
     styles: null
     label: |
       [[[
-        if (states['sensor.charge_discharge_power'].state > '0')
-         return 'Full in: ' +  states['sensor.luna2000_time_to_full_charge'].state;
+        if (states['sensor.charge_discharge_power'].state >= '0')
+         return 'Full Charge';
          return 'Empty in: ' + states['sensor.luna2000_time_left_to_end_disc'].state;
       ]]]
 styles:
