@@ -1,4 +1,5 @@
 ####################### Luna2000 Battery Time Left Till End Discharge ######################################
+####################### copy this code in configuration.yaml or in a package ####################################
 template:
   - sensor:
       - name: "Battery Power Left"
