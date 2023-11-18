@@ -1,0 +1,439 @@
+type: vertical-stack
+cards:
+  - type: picture-elements
+    image: /local/tesla/front_right.png
+    elements:
+      - type: state-label
+        entity: sensor.tesla_kwh_left
+        style:
+          top: 11%
+          left: 14.3%
+          font-size: 12px
+      - type: state-icon
+        entity: sensor.battery
+        style:
+          top: 10%
+          left: 4%
+      - type: state-label
+        entity: sensor.tpms_rear_right
+        style:
+          top: 68.5%
+          left: 20%
+          font-size: 10px
+          color: white
+      - type: state-label
+        entity: sensor.tpms_front_right
+        style:
+          top: 76%
+          left: 59.5%
+          font-size: 10px
+          color: white
+      - type: state-label
+        entity: sensor.range
+        style:
+          top: 11%
+          left: 91%
+          font-size: 12px
+      - type: state-icon
+        entity: sensor.range
+        style:
+          top: 10%
+          left: 80%
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        min: 0
+        name: Power Charging
+        unit: kW
+        entity: sensor.teslapower_kw_front
+        max: 7.4
+        needle: false
+        severity:
+          green: 2
+          yellow: 0
+          red: 5
+      - type: custom:button-card
+        entity: sensor.battery
+        layout: name_state
+        name: Tesla Batt.
+        show_state: false
+        show_label: true
+        state:
+          - value: 10
+            operator: <
+            color: rgb(255,0,0)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-outline';
+                return 'mdi:battery-outline';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 20
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-10';
+                return 'mdi:battery-10';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 30
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-20';
+                return 'mdi:battery-20';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 40
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-30';
+                return 'mdi:battery-30';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 50
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-40';
+                return 'mdi:battery-40';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 60
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-50';
+                return 'mdi:battery-50';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 70
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-60';
+                return 'mdi:battery-60';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 80
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-70';
+                return 'mdi:battery-70';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 90
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-80';
+                return 'mdi:battery-80';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 100
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-90';
+                return 'mdi:battery-90';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+          - value: 101
+            operator: <
+            color: rgb(229,190,1)
+            name: |
+              [[[
+                return states['sensor.tesla_kwh_left'].state + ' kWh' + ' | ' + states['sensor.battery'].state + '%';
+              ]]]
+            icon: |
+              [[[
+                if (states['sensor.teslapower_kw_front'].state > '0.0')
+                  return 'mdi:battery-charging-100';
+                return 'mdi:battery';
+              ]]]
+            label: |
+              [[[
+                if (states['sensor.time_charge_complete'].attributes['minutes_to_full_charge'] == '0')
+                return 'Not charging';
+                return 'Full charge in: ' + states['sensor.tesla_time_to_full_charge'].state;
+              ]]]
+        styles:
+          label:
+            - font-size: 11px
+            - color: gold
+          name:
+            - font-size: 11px
+          card:
+            - height: 120px
+      - type: gauge
+        entity: sensor.daily_energy_totesla
+        severity:
+          green: 0.1
+          yellow: 0
+          red: 0
+        min: 0
+        name: Charged today
+        unit: kWh
+        max: 57.5
+        needle: false
+  - type: custom:bar-card
+    direction: right
+    entities:
+      - entity: sensor.wp_avail_pv_dlm
+        name: Avail. PV 4 Tesla
+        icon: mdi:solar-power-variant
+        unit_of_measurement: kW
+        decimal: 2
+        severity:
+          - color: red
+            from: '0.01'
+            to: '1.0'
+            icon: mdi:solar-power-variant
+          - color: orange
+            from: '1.01'
+            to: '2.50'
+            icon: mdi:solar-power-variant
+          - color: green
+            from: '2.51'
+            to: '6.5'
+            icon: mdi:solar-power-variant
+        max: 6.5
+        min: 0
+        animation:
+          state: 'on'
+          speed: '3'
+      - entity: sensor.green_energy_to_tesla
+        name: PV To Tesla Today
+        icon: mdi:solar-power-variant
+        unit_of_measurement: kWh
+        decimal: 2
+        severity:
+          - color: red
+            from: '0.01'
+            to: '10.00'
+            icon: mdi:solar-power-variant
+          - color: orange
+            from: '10.01'
+            to: '20.00'
+            icon: mdi:solar-power-variant
+          - color: green
+            from: '20.01'
+            to: '57.5'
+            icon: mdi:solar-power-variant
+        max: 57.5
+        min: 0
+        animation:
+          state: 'on'
+          speed: '3'
+      - entity: sensor.daily_grid_energy_totesla
+        name: Grid To Tesla Today
+        icon: mdi:transmission-tower-import
+        unit_of_measurement: kWh
+        decimal: 2
+        severity:
+          - color: red
+            from: '0.01'
+            to: '10.00'
+            icon: mdi:solar-power-variant
+          - color: orange
+            from: '10.01'
+            to: '20.00'
+            icon: mdi:solar-power-variant
+          - color: green
+            from: '20.01'
+            to: '57.5'
+            icon: mdi:solar-power-variant
+        max: 57.5
+        min: 0
+        animation:
+          state: 'on'
+          speed: '3'
+      - entity: sensor.daily_charging_efficiency
+        name: Daily charging efficiency
+        icon: mdi:transmission-tower-import
+        unit_of_measurement: '%'
+        decimal: 2
+        severity:
+          - color: red
+            from: '0.01'
+            to: '60.00'
+            icon: mdi:car-electric
+          - color: orange
+            from: '60.01'
+            to: '90.00'
+            icon: mdi:car-electric
+          - color: green
+            from: '90.01'
+            to: '100'
+            icon: mdi:car-electric
+        max: 100
+        min: 0
+        animation:
+          state: 'on'
+          speed: '3'
+    positions:
+      icon: inside
+      indicator: 'off'
+      name: inside
+      value: inside
+    style: |-
+      :host {
+        --paper-item-icon-color: white;
+       }
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        min: 0
+        name: PV Charged Monthly
+        unit: kWh
+        entity: sensor.m_green_energy_to_tesla
+        max: 300
+        needle: false
+        severity:
+          green: 0.1
+          yellow: 0
+          red: 0
+      - type: gauge
+        entity: sensor.y_green_energy_to_tesla
+        max: 3560
+        severity:
+          green: 0.1
+          yellow: 0
+          red: 0
+        min: 0
+        name: PV Charged Yearly
+        unit: kWh
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        min: 0
+        name: Tot Charged M.
+        unit: kWh
+        entity: sensor.monthly_energy_totesla
+        max: 300
+        needle: false
+        severity:
+          green: 0.1
+          yellow: 0
+          red: 0
+      - type: gauge
+        entity: sensor.yearly_energy_totesla
+        max: 3560
+        severity:
+          green: 0.1
+          yellow: 0
+          red: 0
+        min: 0
+        name: Tot Charged Y.
+        unit: kWh
