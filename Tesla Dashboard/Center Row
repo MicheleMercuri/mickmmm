@@ -1,0 +1,171 @@
+type: vertical-stack
+cards:
+  - type: picture-elements
+    image: /local/tesla/onboard-charger.gif
+    elements:
+      - type: image
+        title: Tesla
+        entity: switch.charger
+        image: /local/tesla/onboard-charger.gif
+        state_image:
+          'on': /local/tesla/onboard-charger.gif
+          'off': /local/tesla/onboard-nocharger.gif
+        style:
+          left: 50%
+          top: 50%
+          width: 100%
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sensor.teslapower_kw_front
+            use_entity_picture: false
+            icon: mdi:ev-station
+        style:
+          left: 11%
+          top: 1%
+          transform: scale(0.8,0.8)
+          width: 15%
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sensor.daily_energy_totesla
+            use_entity_picture: false
+            icon: mdi:car-electric
+        style:
+          left: 11%
+          top: 16%
+          transform: scale(0.8,0.8)
+          width: 15%
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: switch.charger
+        name: Ricarica
+        size: 30%
+        state:
+          - value: 'off'
+            color: rgb(128, 128, 128)
+            icon: mdi:ev-station
+            name: Ricarica Off
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: 'on'
+            color: rgb(229, 190, 1)
+            icon: mdi:ev-station
+            name: Ricarica On
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+        tap_action:
+          action: call-service
+          service: homeassistant.toggle
+          service_data:
+            entity_id: switch.charger
+      - type: custom:button-card
+        entity: button.tesla_charging_type_select
+        name: CRG Select
+        color: rgb(128, 128, 128)
+        icon: mdi:car-3-plus
+        size: 30%
+        styles:
+          card:
+            - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+        tap_action:
+          action: toggle
+      - type: custom:button-card
+        entity: switch.pv_dlm_button
+        name: DLM Wallbox
+        color: rgb(128, 128, 128)
+        icon: mdi:car-3-plus
+        size: 30%
+        state:
+          - value: 'off'
+            color: rgb(128, 128, 128)
+            icon: mdi:ev-station
+            name: DLM Off
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: 'on'
+            color: rgb(229, 190, 1)
+            icon: mdi:ev-station
+            name: DLM On
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+        tap_action:
+          action: call-service
+          service: homeassistant.toggle
+          service_data:
+            entity_id: switch.pv_dlm_button
+  - type: custom:mushroom-number-card
+    fill_container: true
+    display_mode: buttons
+    entity: number.charging_amps
+    name: Ampere Tesla
+    layout: horizontal
+    icon_color: orange
+  - type: custom:apexcharts-card
+    experimental:
+      color_threshold: true
+    header:
+      show: true
+      show_states: true
+      colorize_states: true
+      title: Battery
+    graph_span: 1d
+    span:
+      start: day
+    apex_config:
+      chart:
+        type: area
+      stroke:
+        show: true
+      dataLabels:
+        enabled: true
+      legend:
+        show: false
+      fill:
+        type: gradient
+        gradient:
+          inverseColors: false
+          type: vertical
+          shadeIntensity: 0.1
+          opacityFrom: 0.4
+          opacityTo: 0.1
+      grid:
+        show: false
+      yaxis:
+        - seriesName: 1
+          show: true
+          forceNiceScale: true
+          opposite: false
+          decimalsInFloat: 0
+        - seriesName: 2
+          show: true
+          forceNiceScale: true
+          opposite: true
+          decimalsInFloat: 0
+    all_series_config:
+      stroke_width: 1
+      group_by:
+        func: last
+        duration: 1h
+      curve: smooth
+      type: area
+    series:
+      - entity: sensor.battery
+        color: blue
+        extend_to: now
+        name: Battery Level
+        unit: '%'
+        float_precision: 2
+        fill_raw: last
+      - entity: sensor.tesla_kwh_left
+        color: lightgreen
+        extend_to: now
+        name: kWh Left
+        unit: kWh
+        float_precision: 2
+        fill_raw: last
