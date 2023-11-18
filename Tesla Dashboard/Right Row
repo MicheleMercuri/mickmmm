@@ -1,0 +1,223 @@
+type: vertical-stack
+cards:
+  - type: picture-elements
+    image: /local/tesla/front.png
+    elements:
+      - type: state-label
+        entity: sensor.battery
+        style:
+          top: 11%
+          left: 10%
+          font-size: 12px
+      - type: state-icon
+        entity: sensor.battery
+        style:
+          top: 10%
+          left: 4%
+      - type: state-label
+        entity: sensor.temperature_inside
+        style:
+          top: 28%
+          left: 46%
+          font-size: 10px
+          color: white
+      - type: state-icon
+        entity: sensor.temperature_inside
+        style:
+          top: 28%
+          left: 40%
+          '--mdc-icon-size': 15px
+          '--paper-item-icon-color': white
+      - type: state-label
+        entity: sensor.temperature_outside
+        style:
+          top: 11%
+          left: 93.5%
+          font-size: 12px
+      - type: state-icon
+        entity: sensor.temperature_outside
+        style:
+          top: 10%
+          left: 86%
+      - type: state-label
+        entity: sensor.tpms_front_left
+        style:
+          top: 78%
+          left: 43%
+          font-size: 10px
+          color: white
+      - type: state-label
+        entity: sensor.tpms_rear_left
+        style:
+          top: 68%
+          left: 85%
+          font-size: 10px
+          color: white
+  - type: custom:mushroom-climate-card
+    entity: climate.hvac_climate_system
+    fill_container: false
+    collapsible_controls: false
+    hvac_modes:
+      - heat_cool
+      - 'off'
+    icon: mdi:snowflake-thermometer
+    show_temperature_control: true
+    primary_info: name
+    layout: horizontal
+    name: Tesla Clima
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: cover.charger_door
+        name: Sportello Ricarica
+        size: 30%
+        state:
+          - value: closed
+            color: rgb(128, 128, 128)
+            icon: mdi:ev-plug-tesla
+            name: Sport. Ric. Chiuso
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: open
+            color: rgb(229, 190, 1)
+            icon: mdi:ev-plug-tesla
+            name: Sport. Ric. Aperto
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+        tap_action:
+          action: call-service
+          service: homeassistant.toggle
+          service_data:
+            entity_id: cover.charger_door
+      - type: custom:button-card
+        entity: cover.windows
+        name: Porte
+        size: 30%
+        state:
+          - value: closed
+            color: rgb(128, 128, 128)
+            icon: mdi:window-closed
+            name: Finestr. chiusi
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: open
+            color: rgb(229, 190, 1)
+            icon: mdi:window-open
+            name: Finestr. Aperti
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: lock.doors
+        name: Porte
+        size: 50%
+        state:
+          - value: locked
+            color: rgb(128, 128, 128)
+            icon: mdi:car-door-lock
+            name: Porte Bloccate
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: unlocked
+            color: rgb(229, 190, 1)
+            icon: mdi:car-door
+            name: Porte Sbloccate
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+      - type: custom:button-card
+        entity: cover.trunk
+        name: Sportello Ricarica
+        size: 50%
+        state:
+          - value: closed
+            color: rgb(128, 128, 128)
+            icon: mdi:car-select
+            name: Bagagliaio Chiuso
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: open
+            color: rgb(229, 190, 1)
+            icon: mdi:car-select
+            name: Bagagliaio Aperto
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+      - type: custom:button-card
+        entity: cover.frunk
+        name: Cofano
+        size: 50%
+        state:
+          - value: closed
+            color: rgb(128, 128, 128)
+            icon: mdi:lock-outline
+            name: Cofano Chiuso
+            styles:
+              card:
+                - box-shadow: 0px 0px 1px 1px rgb(128, 128, 128)
+          - value: open
+            color: rgb(229, 190, 1)
+            icon: mdi:lock-open-variant-outline
+            name: Cofano Aperto
+            styles:
+              card:
+                - box-shadow: 0px 0px 3px 1px rgb(229, 190, 1)
+  - type: custom:apexcharts-card
+    experimental:
+      color_threshold: true
+    header:
+      show: true
+      show_states: true
+      colorize_states: true
+      title: Temperature
+    graph_span: 1d
+    span:
+      start: day
+    apex_config:
+      chart:
+        type: area
+      stroke:
+        show: true
+      dataLabels:
+        enabled: true
+      legend:
+        show: false
+      fill:
+        type: gradient
+        gradient:
+          inverseColors: false
+          type: vertical
+          shadeIntensity: 0.1
+          opacityFrom: 0.4
+          opacityTo: 0.1
+      grid:
+        show: false
+    all_series_config:
+      stroke_width: 1
+      group_by:
+        func: last
+        duration: 1h
+      curve: smooth
+      type: area
+    series:
+      - entity: sensor.temperature_inside
+        color: blue
+        extend_to: now
+        name: Inside
+        unit: °C
+        float_precision: 1
+        fill_raw: last
+      - entity: sensor.temperature_outside
+        color: lightgreen
+        extend_to: now
+        name: Outside
+        unit: °C
+        float_precision: 1
+        fill_raw: last
