@@ -26,17 +26,19 @@
             "b84537dbce56c0b4",
             "a9a0d4f71b0df33c",
             "12231880eba72e9a",
-            "a3b47e71bc197819",
-            "bef837a5d773d9a8",
             "c398dcc49bde14fb",
             "a254a95f24aaf49a",
             "227481bf1ec61a1d",
-            "ba1a10af9646f835"
+            "ba1a10af9646f835",
+            "3e94866b371c6c7c",
+            "c9b65469b1a8feab",
+            "f25657fcaaad8ca0",
+            "159a802eaecc9ff9"
         ],
         "x": 554,
         "y": 219,
         "w": 1232,
-        "h": 482
+        "h": 502
     },
     {
         "id": "1bfbfd30063173b5",
@@ -60,17 +62,18 @@
             "a2acd8bda83b29c8",
             "9de788e9503f5b41",
             "7925617476d15fd8",
-            "a647cee281c98c91",
-            "4f866f888282f2ec",
-            "16973292a0b7fa6b",
             "d16ae1bf8ce73f27",
             "6ad4f442c8459a47",
-            "a405b5e24a2ffdbd"
+            "a405b5e24a2ffdbd",
+            "1396ddeb6b0195fa",
+            "b76de0f1f19e5a73",
+            "cdf9bfcf0f33e339",
+            "00ed0600bdbf8203"
         ],
         "x": 554,
         "y": 739,
         "w": 1232,
-        "h": 422
+        "h": 502
     },
     {
         "id": "66b4df7ac1467ac0",
@@ -152,7 +155,7 @@
             "c9248780bf765dcb"
         ],
         "x": 554,
-        "y": 1199,
+        "y": 1279,
         "w": 1232,
         "h": 562
     },
@@ -173,8 +176,7 @@
         "y": 400,
         "wires": [
             [
-                "9ae92e887891e4b7",
-                "a3b47e71bc197819"
+                "9ae92e887891e4b7"
             ]
         ]
     },
@@ -366,11 +368,10 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
-                "405db7419aa28842",
-                "16973292a0b7fa6b"
+                "405db7419aa28842"
             ]
         ]
     },
@@ -397,7 +398,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 760,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "41a827357d6648dc"
@@ -426,7 +427,7 @@
         "repair": false,
         "outputs": 2,
         "x": 910,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "0764adae19ee58aa"
@@ -455,7 +456,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 790,
-        "y": 800,
+        "y": 840,
         "wires": [
             [
                 "7925617476d15fd8"
@@ -476,10 +477,9 @@
         "finalize": "",
         "libs": [],
         "x": 1240,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
-                "a647cee281c98c91",
                 "3a3bdc555d8d3bac"
             ]
         ]
@@ -503,7 +503,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1050,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "23b9d2ec265ef731"
@@ -534,7 +534,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1450,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "a405b5e24a2ffdbd"
@@ -563,7 +563,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1370,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             [
                 "23b9d2ec265ef731"
@@ -608,7 +608,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1690,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "d16ae1bf8ce73f27"
@@ -631,102 +631,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1000,
-        "y": 780,
+        "x": 1120,
+        "y": 840,
         "wires": [
             [
-                "405db7419aa28842",
-                "4f866f888282f2ec"
+                "405db7419aa28842"
             ]
         ]
-    },
-    {
-        "id": "a647cee281c98c91",
-        "type": "debug",
-        "z": "92c3441fccf0c72a",
-        "g": "1bfbfd30063173b5",
-        "name": "payloads",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1440,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "4f866f888282f2ec",
-        "type": "debug",
-        "z": "92c3441fccf0c72a",
-        "g": "1bfbfd30063173b5",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "16973292a0b7fa6b",
-        "type": "debug",
-        "z": "92c3441fccf0c72a",
-        "g": "1bfbfd30063173b5",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1140,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "a3b47e71bc197819",
-        "type": "debug",
-        "z": "92c3441fccf0c72a",
-        "g": "2e17288dceafa8e3",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1240,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "bef837a5d773d9a8",
-        "type": "debug",
-        "z": "92c3441fccf0c72a",
-        "g": "2e17288dceafa8e3",
-        "name": "debug 8",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "z_payload",
-        "statusType": "msg",
-        "x": 1420,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "023d82e4c90c607e",
@@ -745,7 +656,6 @@
         "y": 380,
         "wires": [
             [
-                "bef837a5d773d9a8",
                 "a9a0d4f71b0df33c"
             ]
         ]
@@ -1109,11 +1019,11 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 1690,
-        "y": 460,
+        "x": 1610,
+        "y": 380,
         "wires": [
             [
-                "5eae9844675693c3"
+                "f25657fcaaad8ca0"
             ],
             [
                 "0172d6d2bfa7432f"
@@ -1157,8 +1067,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 1530,
-        "y": 380,
+        "x": 1690,
+        "y": 480,
         "wires": [
             [
                 "a254a95f24aaf49a"
@@ -1234,11 +1144,11 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 1670,
-        "y": 940,
+        "x": 1610,
+        "y": 880,
         "wires": [
             [
-                "7925617476d15fd8"
+                "cdf9bfcf0f33e339"
             ],
             [
                 "0172d6d2bfa7432f"
@@ -1283,10 +1193,10 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1570,
-        "y": 1120,
+        "y": 1200,
         "wires": [
             [
-                "a2acd8bda83b29c8"
+                "1396ddeb6b0195fa"
             ],
             [
                 "0172d6d2bfa7432f"
@@ -1331,7 +1241,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1570,
-        "y": 1040,
+        "y": 1080,
         "wires": [
             [
                 "6ad4f442c8459a47"
@@ -1378,11 +1288,11 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 1530,
+        "x": 1430,
         "y": 660,
         "wires": [
             [
-                "12231880eba72e9a"
+                "3e94866b371c6c7c"
             ],
             [
                 "0172d6d2bfa7432f"
@@ -1744,7 +1654,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 660,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "7785768cad89bdf3"
@@ -1765,8 +1675,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
-        "y": 1240,
+        "x": 960,
+        "y": 1320,
         "wires": [
             [
                 "463947ba3daecb25"
@@ -1796,8 +1706,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1090,
-        "y": 1260,
+        "x": 1130,
+        "y": 1340,
         "wires": [
             [
                 "f3bd4f60ea09e37a"
@@ -1821,7 +1731,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1600,
+        "y": 1680,
         "wires": [
             [
                 "b1471a4ffd485461"
@@ -1851,7 +1761,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 900,
-        "y": 1560,
+        "y": 1640,
         "wires": [
             [
                 "86851a93a6a9a723"
@@ -1880,7 +1790,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1170,
-        "y": 1480,
+        "y": 1560,
         "wires": [
             [
                 "da75933328f2dc42"
@@ -1909,7 +1819,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1010,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "03edbb650f8cea29"
@@ -1930,7 +1840,7 @@
         "finalize": "",
         "libs": [],
         "x": 1260,
-        "y": 1560,
+        "y": 1640,
         "wires": [
             [
                 "4e4c30cdeef966f0"
@@ -1956,7 +1866,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1070,
-        "y": 1620,
+        "y": 1700,
         "wires": [
             [
                 "d31b2e9820558d1e"
@@ -1987,7 +1897,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1390,
-        "y": 1500,
+        "y": 1580,
         "wires": [
             [
                 "95627bea53d90db6"
@@ -2016,7 +1926,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1350,
-        "y": 1660,
+        "y": 1740,
         "wires": [
             [
                 "d31b2e9820558d1e"
@@ -2060,8 +1970,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 1510,
-        "y": 1300,
+        "x": 1610,
+        "y": 1480,
         "wires": [
             [
                 "e8f7792ef950c3ee"
@@ -2084,8 +1994,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1260,
-        "y": 1340,
+        "x": 1300,
+        "y": 1420,
         "wires": [
             [
                 "b1471a4ffd485461"
@@ -2133,7 +2043,6 @@
         "y": 1400,
         "wires": [
             [
-                "03edbb650f8cea29",
                 "72e1f9a59e0e1f28"
             ],
             [
@@ -2179,7 +2088,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1630,
-        "y": 1580,
+        "y": 1660,
         "wires": [
             [
                 "b67eda17d87aa24e"
@@ -2227,7 +2136,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 1570,
-        "y": 1500,
+        "y": 1580,
         "wires": [
             [
                 "b768cc83082e7bdb"
@@ -2261,7 +2170,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1690,
-        "y": 1720,
+        "y": 1800,
         "wires": [
             [
                 "f3bd4f60ea09e37a"
@@ -2277,7 +2186,7 @@
         "z": "92c3441fccf0c72a",
         "g": "3c521f494ecaeb8a",
         "name": "Target vs State",
-        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale, restituisci il messaggio 1 quindi prosegui con la ricarica\n} else {\n    msg.payload = 1; // Altrimenti, restituisci il messaggio 0 e quindi interrompi la ricarica\n}\n\nreturn msg;",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2285,7 +2194,7 @@
         "finalize": "",
         "libs": [],
         "x": 1500,
-        "y": 1720,
+        "y": 1800,
         "wires": [
             [
                 "28bdad0ad9495591"
@@ -2298,15 +2207,15 @@
         "z": "92c3441fccf0c72a",
         "g": "3c521f494ecaeb8a",
         "name": "Target vs State",
-        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale, restituisci il messaggio 1\n} else {\n    msg.payload = 1; // Altrimenti, restituisci il messaggio 0\n}\n\nreturn msg;",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1480,
-        "y": 1240,
+        "x": 1320,
+        "y": 1320,
         "wires": [
             [
                 "e45c1735c0b698ef"
@@ -2336,8 +2245,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1710,
-        "y": 1260,
+        "x": 1490,
+        "y": 1320,
         "wires": [
             [
                 "f3bd4f60ea09e37a"
@@ -2353,7 +2262,7 @@
         "z": "92c3441fccf0c72a",
         "g": "3c521f494ecaeb8a",
         "name": "Off Peak Calc",
-        "func": "var ora_corrente = new Date();\nvar ora_attuale = ora_corrente.getHours();\nvar giorno_corrente = ora_corrente.getDate(); // Ottiene il giorno corrente \n\n// Imposta la mezzanotte di oggi\nvar mezzanotte_oggi = new Date();\nmezzanotte_oggi.setHours(0, 0, 0, 0);\n\nif ((ora_attuale >= 23 || ora_attuale < 7) && ora_corrente.getTime() >= mezzanotte_oggi.getTime()) {\n    // Se l'orario attuale è dalle 23:00 alle 24.00 di oggi oppure è compreso tra 24.00 e le 7:00 di oggi autorizza il passaggio del flusso\n    return msg;\n} else {\n    // Se l'orario attuale non è compreso tra le 23:00 e le 07:00 del giorno corrente calcola il tempo rimanente fino alle 23:00\n    var ora_23 = new Date();\n    ora_23.setHours(23, 0, 0, 0); // Imposta le 23:00 di oggi\n\n    var tempo_corrente = ora_corrente.getTime();\n    var tempo_23 = ora_23.getTime();\n\n    // Funzione per aggiornare il tempo rimanente ogni secondo\n    function aggiornaTempoRimanente() {\n        var ora_corrente = new Date();\n        var tempo_corrente = ora_corrente.getTime();\n        var tempo_rimanente = tempo_23 - tempo_corrente;\n\n        // Calcola il tempo rimanente in ore, minuti e secondi\n        var ore_rimanenti = Math.floor(tempo_rimanente / (1000 * 60 * 60));\n        var minuti_rimasti = Math.floor((tempo_rimanente % (1000 * 60 * 60)) / (1000 * 60));\n        var secondi_rimasti = Math.floor((tempo_rimanente % (1000 * 60)) / 1000);\n\n        // Formatta il tempo rimanente nel formato HH:MM:SS\n        var tempo_rimanente_format = ('0' + ore_rimanenti).slice(-2) + ':' + ('0' + minuti_rimasti).slice(-2) + ':' + ('0' + secondi_rimasti).slice(-2);\n\n        // Invia il messaggio al nodo Home Assistant per aggiornare il sensore\n        var newMsg = {\n            payload: {\n                state: tempo_rimanente_format,\n                attributes: {\n                    countdown: tempo_rimanente_format\n                }\n            }\n        };\n        node.send(newMsg);\n    }\n\n    // Invoca la funzione per aggiornare il tempo rimanente ogni secondo\n    setInterval(aggiornaTempoRimanente, 1000);\n\n    return null;\n}",
+        "func": "var ora_corrente = new Date();\nvar ora_attuale = ora_corrente.getHours();\nvar giorno_corrente = ora_corrente.getDate(); // Ottiene il giorno corrente \n\n// Imposta la mezzanotte di oggi\nvar mezzanotte_oggi = new Date();\nmezzanotte_oggi.setHours(0, 0, 0, 0);\n\nif ((ora_attuale >= 23 || ora_attuale < 7) && ora_corrente.getTime() >= mezzanotte_oggi.getTime()) {\n    // Se l'orario attuale è dalle 23:00 alle 24.00 di oggi oppure è compreso tra 24.00 e le 7:00 di oggi autorizza il passaggio del flusso\n    node.send({ payload: \"off peak ok\" });\n    // Aggiorna il sensore con tempo scaduto in quanto siamo nel range 23.00-07.00\n    var tempo_rimanente_format = ('00' + ':' + '00' + ':' + '00');\n    var newMsg = {\n        payload: {\n            state: tempo_rimanente_format,\n            attributes: {\n                countdown: tempo_rimanente_format\n            }\n        }\n    };\n    node.send(newMsg);\n    return msg;\n} else {\n    // Se l'orario attuale non è compreso tra le 23:00 e le 07:00 del giorno corrente calcola il tempo rimanente fino alle 23:00\n    var ora_23 = new Date();\n    ora_23.setHours(23, 0, 0, 0); // Imposta le 23:00 di oggi\n\n    var tempo_corrente = ora_corrente.getTime();\n    var tempo_23 = ora_23.getTime();\n\n    // Calcola il tempo rimanente\n    var tempo_rimanente = tempo_23 - tempo_corrente;\n\n    // Invia il messaggio per avviare la ricarica dopo il tempo_rimanente\n    setTimeout(function () {\n        node.send({ payload: \"off peak ok\" });\n    }, tempo_rimanente);\n\n    // Funzione per aggiornare il tempo rimanente ogni secondo\n    function aggiornaTempoRimanente() {\n        var ora_corrente = new Date();\n        var tempo_corrente = ora_corrente.getTime();\n        var tempo_rimanente = tempo_23 - tempo_corrente;\n\n        // Calcola il tempo rimanente in ore, minuti e secondi\n        var ore_rimanenti = Math.floor(tempo_rimanente / (1000 * 60 * 60));\n        var minuti_rimasti = Math.floor((tempo_rimanente % (1000 * 60 * 60)) / (1000 * 60));\n        var secondi_rimasti = Math.floor((tempo_rimanente % (1000 * 60)) / 1000);\n\n        // Formatta il tempo rimanente nel formato HH:MM:SS\n        var tempo_rimanente_format = ('0' + ore_rimanenti).slice(-2) + ':' + ('0' + minuti_rimasti).slice(-2) + ':' + ('0' + secondi_rimasti).slice(-2);\n\n        // Invia il messaggio al nodo Home Assistant per aggiornare il sensore\n        var newMsg = {\n            payload: {\n                state: tempo_rimanente_format,\n                attributes: {\n                    countdown: tempo_rimanente_format\n                }\n            }\n        };\n        node.send(newMsg);\n    }\n\n    // Invoca la funzione per aggiornare il tempo rimanente ogni secondo\n    setInterval(aggiornaTempoRimanente, 1000);\n\n    return null;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2361,7 +2270,7 @@
         "finalize": "",
         "libs": [],
         "x": 780,
-        "y": 1360,
+        "y": 1440,
         "wires": [
             [
                 "f0abf3d86fbf4230"
@@ -2423,12 +2332,12 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "Avvia la ricarica",
+                "v": "off peak ok",
                 "vt": "str"
             },
             {
                 "t": "neq",
-                "v": "Avvia la ricarica",
+                "v": "off peak ok",
                 "vt": "str"
             }
         ],
@@ -2436,7 +2345,7 @@
         "repair": false,
         "outputs": 2,
         "x": 750,
-        "y": 1300,
+        "y": 1360,
         "wires": [
             [
                 "3ca88bcc307ff95a"
@@ -2466,76 +2375,230 @@
         "inputOverride": "allow",
         "outputProperties": [],
         "x": 990,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             []
         ]
     },
     {
-        "id": "18c44839dc66876c",
+        "id": "1396ddeb6b0195fa",
         "type": "function",
         "z": "92c3441fccf0c72a",
-        "name": "function 5",
-        "func": "var power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\nlet w3 = parseFloat(power3);\n\n// calcolo la potenza da fotovoltaico disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// potenza contatore settata in HA con il sensore \"input_number.electric_meter_power\"\nlet x = w3;\n\nmsg.payload = x; // Setto il valore di x come payload del messaggio e lo passo al nodo successivo\nreturn msg;",
+        "g": "1bfbfd30063173b5",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 1960,
+        "x": 1100,
+        "y": 1100,
         "wires": [
             [
-                "4965bccb44c0e43e"
+                "b76de0f1f19e5a73"
             ]
         ]
     },
     {
-        "id": "3475cf1895fab9c5",
-        "type": "inject",
+        "id": "b76de0f1f19e5a73",
+        "type": "switch",
         "z": "92c3441fccf0c72a",
-        "name": "",
-        "props": [
+        "g": "1bfbfd30063173b5",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
             {
-                "p": "payload"
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 1960,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1230,
+        "y": 1180,
         "wires": [
             [
-                "18c44839dc66876c"
+                "f3bd4f60ea09e37a"
+            ],
+            [
+                "a2acd8bda83b29c8"
             ]
         ]
     },
     {
-        "id": "4965bccb44c0e43e",
-        "type": "debug",
+        "id": "cdf9bfcf0f33e339",
+        "type": "function",
         "z": "92c3441fccf0c72a",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 480,
-        "y": 1960,
-        "wires": []
+        "g": "1bfbfd30063173b5",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 780,
+        "wires": [
+            [
+                "00ed0600bdbf8203"
+            ]
+        ]
+    },
+    {
+        "id": "00ed0600bdbf8203",
+        "type": "switch",
+        "z": "92c3441fccf0c72a",
+        "g": "1bfbfd30063173b5",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1350,
+        "y": 900,
+        "wires": [
+            [
+                "f3bd4f60ea09e37a"
+            ],
+            [
+                "7925617476d15fd8"
+            ]
+        ]
+    },
+    {
+        "id": "3e94866b371c6c7c",
+        "type": "function",
+        "z": "92c3441fccf0c72a",
+        "g": "2e17288dceafa8e3",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 600,
+        "wires": [
+            [
+                "c9b65469b1a8feab"
+            ]
+        ]
+    },
+    {
+        "id": "c9b65469b1a8feab",
+        "type": "switch",
+        "z": "92c3441fccf0c72a",
+        "g": "2e17288dceafa8e3",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1190,
+        "y": 680,
+        "wires": [
+            [
+                "f3bd4f60ea09e37a"
+            ],
+            [
+                "12231880eba72e9a"
+            ]
+        ]
+    },
+    {
+        "id": "f25657fcaaad8ca0",
+        "type": "function",
+        "z": "92c3441fccf0c72a",
+        "g": "2e17288dceafa8e3",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 260,
+        "wires": [
+            [
+                "159a802eaecc9ff9"
+            ]
+        ]
+    },
+    {
+        "id": "159a802eaecc9ff9",
+        "type": "switch",
+        "z": "92c3441fccf0c72a",
+        "g": "2e17288dceafa8e3",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1630,
+        "y": 300,
+        "wires": [
+            [
+                "f3bd4f60ea09e37a"
+            ],
+            [
+                "5eae9844675693c3"
+            ]
+        ]
     },
     {
         "id": "1c37c350.3f926d",
