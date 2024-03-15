@@ -1,0 +1,31 @@
+######## DLM Tesla Charge sensors ########
+###### START Preconfigured sensors not to be touched #####
+# Define input_select_charger_mode_tesla #
+input_select:
+# Define input_select_charger_mode_tesla #
+  tesla_chargemode_select:
+    name: Tesla Charge Mode Select
+    options:
+      - "Off"
+      - "PV DLM"
+      - "Grid DLM"
+      - "Off Peak DLM"
+    icon: mdi:car-electric-outline
+# Define input select Power of home electric meter #
+input_number:
+  electric_meter_power:
+    name: Electric Meter Power
+    min: 500
+    max: 10000
+    step: 100
+    unit_of_measurement: W
+    icon: mdi:transmission-tower
+# Define input select Tesla SOC Target #
+  tesla_battery_charge_target:
+    name: tesla battery charge target
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:battery-charging
+###### END Preconfigured sensors not to be touched #####
