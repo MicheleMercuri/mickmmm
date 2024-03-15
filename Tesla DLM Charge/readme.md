@@ -1,4 +1,5 @@
 This Node-RED flow manages the charging of a Tesla car in three different ways:
+![1](https://github.com/MicheleMercuri/mickmmm/assets/97225788/99d5eae7-b79f-4f46-8f51-629926b513e9)
 
 100% self-consumption of the photovoltaic production
 Maintenance of the limit of the network electric meter's power (avoids disconnection)
