@@ -18,9 +18,7 @@ C) A photovoltaic system integrated into HA
 
 D) A Tesla car integrated into HA**
 
-
-Uploading Registrazione 2024-03-15 195603.mp4…
-
+https://github.com/MicheleMercuri/mickmmm/assets/97225788/07e86794-1712-4aca-9351-953020a3201d
 
 For automation no. 1 (100% self-consumption of the photovoltaic production), the Node-RED flow will check every 30 seconds that the charging power absorbs 100% of the available photovoltaic power. If the power value from the photovoltaic is higher or lower than 1A compared to the amperes set in Tesla, the flow recalculates the value and modifies it. To avoid errors in setting the amperes, the flow calculates the maximum and minimum available amperes for Tesla and the value of the volts available on the electric line at each cycle.
 Automations can be managed from Lovelace; it is possible to switch from one type of charging to another, and the charging in F3 off-peak displays a countdown before starting.
