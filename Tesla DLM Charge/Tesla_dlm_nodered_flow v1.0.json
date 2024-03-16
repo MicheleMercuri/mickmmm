@@ -1,0 +1,2676 @@
+[
+    {
+        "id": "ea982a997cb371e7",
+        "type": "tab",
+        "label": "Tesla PV DLM",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "76477e20de79167a",
+        "type": "group",
+        "z": "ea982a997cb371e7",
+        "name": "PV DLM Charge",
+        "style": {
+            "fill": "#ffff7f",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "65b3fd16be9d3ea6",
+            "c466154825006b42",
+            "fe8b400eeb56f37d",
+            "4cc82d5ff69dba95",
+            "561bdccc2fa2bc70",
+            "27347d4f1dce0597",
+            "e2774d56710addd1",
+            "6aad8d3ad9c68d7c",
+            "2904eb081f656bb0",
+            "2274ecd53a3bb076",
+            "b1cee771ebdb90d0",
+            "cc35abe72e35f50e",
+            "2da4b91d54f78a46",
+            "79a63c03437d9d4c",
+            "70f16a7ed7a4d3a7",
+            "213bf094d32ebf76"
+        ],
+        "x": 554,
+        "y": 219,
+        "w": 1232,
+        "h": 502
+    },
+    {
+        "id": "2696b63567843434",
+        "type": "group",
+        "z": "ea982a997cb371e7",
+        "name": "Grid DLM Charge",
+        "style": {
+            "fill": "#ffbfbf",
+            "fill-opacity": "0.78",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "08b8bb3fa78c6aba",
+            "d7bce0e6acb7ead3",
+            "230ed00805089920",
+            "e049a408a9726ce4",
+            "9950803dc8d5e8c5",
+            "0eeae8809b8cce81",
+            "90ffbbbce19543f3",
+            "2a2c9c1803fe6d93",
+            "c00d45cc8f35fb86",
+            "7d4469d99be768e2",
+            "0ad7cbf4709bdf26",
+            "dfc170bc2de9c5d9",
+            "97f4e8a5a33c1115",
+            "50a8e3fb9acc4b4f",
+            "e97672a465090d75",
+            "b9d4eb8562c78eaf",
+            "15a48252fdcb537d"
+        ],
+        "x": 554,
+        "y": 739,
+        "w": 1232,
+        "h": 502
+    },
+    {
+        "id": "78d6f3fdf6ca17ac",
+        "type": "group",
+        "z": "ea982a997cb371e7",
+        "name": "Off CRG Select",
+        "style": {
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.67",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "9acee5fbe8b3b043",
+            "33ef35b2d1e7577a",
+            "8da54897121589b7"
+        ],
+        "x": 554,
+        "y": 39,
+        "w": 1232,
+        "h": 162
+    },
+    {
+        "id": "991a8f11ea77a335",
+        "type": "group",
+        "z": "ea982a997cb371e7",
+        "name": "Polling Auto on-Off",
+        "style": {
+            "fill": "#ffC000",
+            "fill-opacity": "0.4",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "8d2d115d0f8c8077",
+            "569531330d30311d",
+            "484f6eaaf6f17475",
+            "42c6b8f982c4171d"
+        ],
+        "x": 54,
+        "y": 1699,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "872ca6355a0d38a1",
+        "type": "group",
+        "z": "ea982a997cb371e7",
+        "name": "DLM Off-Peak Charge",
+        "style": {
+            "fill": "#bfdbef",
+            "fill-opacity": "0.78",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "a8640bfc859dd599",
+            "1c62699c4d4af925",
+            "479928d08df148a1",
+            "b3b19d5b30126738",
+            "6198f857bedaa91b",
+            "b674aefe0e0b61db",
+            "9717656b196f2f7e",
+            "902c968a66c20502",
+            "aa64162340902deb",
+            "99ed4afdcb94585e",
+            "1bb64c9cf58c433a",
+            "60a8f72d47f603c5",
+            "b202367f768c95e5",
+            "57ad310eb8a6934d",
+            "17f6ada1dc20175d",
+            "3b066a8f2afa7daa",
+            "c17dd7fbfd8e6dd4",
+            "2dbe16cb9e96887d",
+            "450e4193f57e62e2",
+            "50f5a54023540052",
+            "3b094d4fb8e31976",
+            "c15521c63a4c108d",
+            "ea2d4e9fb7610a33"
+        ],
+        "x": 554,
+        "y": 1279,
+        "w": 1232,
+        "h": 562
+    },
+    {
+        "id": "65b3fd16be9d3ea6",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Kw PV",
+        "func": "// Ottengo i valori di potenza dai sensori di fotovoltaico, wallbox, prelievo da rete e immissione in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.input_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"sensor.active_power\"].state');\nvar power4 = global.get('homeassistant.homeAssistant.states[\"sensor.pv_to_grid_kwp\"].state');\nvar power8 = global.get('homeassistant.homeAssistant.states[\"sensor.power_grid_kwp\"].state');\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\nlet w4 = parseFloat(power4);\nlet w8 = parseFloat(power8);\n\n// Calcolo la somma delle potenze per avere il netto da fotovoltiaco disponibile\nlet y = w1 - w3 + w4 + w2 - w8;\n\n// acquisisco il dato del voltaggio corrente che servira per il calcolo della potenza moltiplicandolo per gli ampere \nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\nlet x = 1; // Inizio la sequenza con x = 1 per trovare il valore da settare in ampere per la tesla\n\nwhile (x * w5 < y) {\n    x++;\n}\n\nif (x * w5 > y) {\n    x--; // Preseguo fino a quando supera y e quindi diminuisco x di una unità\n}\n\nif (x > maxamp) {\n    x = maxamp; // Mi assicuro che il valore massimo di x sia minore del max amperaggio consentito\n}\n\nif (x < minamp) {\n    x = minamp; // Mi assicuro che il valore minimo di x non sia minore del min amperaggio consentito\n}\n\nmsg.payload = x; // Setto il valore di x come payload del messaggio e lo passo al nodo successivo\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 500,
+        "wires": [
+            [
+                "c466154825006b42"
+            ]
+        ]
+    },
+    {
+        "id": "c466154825006b42",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Set Amp Value 1",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": true,
+        "domain": "number",
+        "service": "set_value",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "number.model3_charging_amps"
+        ],
+        "data": "{\"value\": payload}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 980,
+        "y": 360,
+        "wires": [
+            [
+                "4cc82d5ff69dba95"
+            ]
+        ]
+    },
+    {
+        "id": "4cc82d5ff69dba95",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1150,
+        "y": 260,
+        "wires": [
+            [
+                "fe8b400eeb56f37d"
+            ]
+        ]
+    },
+    {
+        "id": "561bdccc2fa2bc70",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Cycle",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1390,
+        "y": 480,
+        "wires": [
+            [
+                "e2774d56710addd1"
+            ],
+            [
+                "2274ecd53a3bb076"
+            ]
+        ]
+    },
+    {
+        "id": "27347d4f1dce0597",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1130,
+        "y": 540,
+        "wires": [
+            [
+                "fe8b400eeb56f37d"
+            ]
+        ]
+    },
+    {
+        "id": "08b8bb3fa78c6aba",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Kw Grid",
+        "func": "// Inizio con acquisire i dati di potenza dei vari sensori di inverter wallbox prelievo da rete e invio in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.grid_active_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\n\n// calcolo la potenza da fotovoltaico disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// la potenza del vostro contatore va settata dal sensore \"input_number.electric_meter_power\"\nlet y = w3 + w1 - w2;\n\n// acquisisco il dato del voltaggio corrente che servira per il calcolo della potenza moltiplicandolo per gli ampere \nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\nlet x = 1; // Inizio la sequenza con x = 1 per trovare il valore da settare in ampere per la tesla\n\nwhile (x * w5 < y) {\n    x++;\n}\n\nif (x * w5 > y) {\n    x--; // Preseguo fino a quando x supera y e quindi diminuisco x di una unità\n}\n\nif (x > maxamp) {\n    x = maxamp; // Mi assicuro che il valore massimo di x sia minore del max amperaggio consentito\n}\n\nif (x < minamp) {\n    x = minamp; // Mi assicuro che il valore minimo di x non sia minore del min amperaggio consentito\n}\n\nmsg.payload = x; // Setto il valore di x come payload del messaggio e lo passo al nodo successivo\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 960,
+        "wires": [
+            [
+                "d7bce0e6acb7ead3"
+            ]
+        ]
+    },
+    {
+        "id": "d7bce0e6acb7ead3",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Set Amp Value 2",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": true,
+        "domain": "number",
+        "service": "set_value",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "number.model3_charging_amps"
+        ],
+        "data": "{\"value\": payload}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 840,
+        "y": 1020,
+        "wires": [
+            [
+                "e049a408a9726ce4"
+            ]
+        ]
+    },
+    {
+        "id": "230ed00805089920",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Check Grid Kw",
+        "func": "// Inizio con acquisire i dati di potenza dei vari sensori di inverter wallbox prelievo da rete e invio in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.grid_active_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\n\n// calcolo la potenza da contatore disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// la potenza del vostro contatore va settata dal sensore \"input_number.electric_meter_power\"\nlet y = w3 + (w1);\n\n// Ottengo il valore di tensione di rete che serve per il calcolo preciso della potenza di ricarica della Tesla\nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo lo stato degli ampere settati in Tesla\nvar ampere1 = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].state');\nlet a1 = parseFloat(ampere1);\n\n// Calcolo il valore della potenza di 1 ampere Tesla\nlet x = w5 * 1;\n\n// Calcolo la differenza tra potenza residua da contatore e 1 ampere\nlet z = y - x;\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\n// Verifico le condizioni e setto il payload\nif (z > 0 && z > x && a1 < maxamp) {\n    msg.payload = 1; // Se z è maggiore di zero e maggiore di x, imposto payload a 1, cioè ho potenza disponibile dal contatore e devo aumentare gli ampere di Tesla\n} else if (z > 0 && z > x && a1 === maxamp) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z > 0 && z < x) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z > 0 && z < x && a1 === maxamp) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z < 0 && a1 === minamp) {\n    msg.payload = 0; // Se z è minore di zero e a1 è 1, imposto payload sempre a 0, ho potenza netta dal contatore negativa ma ampere Tesla è già al minimo e quindi non posso diminuirlo ulteriormente\n} else if (z >= -x && z <= x) {\n    msg.payload = 0; // Se z è compreso tra x e -x  imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else {\n    msg.payload = 1; // ho potenza netta dal contatore negativa e quindi devo ridurre ampere Tesla\n}\n\n// only for debug\nmsg.y_payload = y;\nmsg.z_payload = z;\nmsg.x_payload = x;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 1000,
+        "wires": [
+            [
+                "9950803dc8d5e8c5"
+            ]
+        ]
+    },
+    {
+        "id": "e049a408a9726ce4",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1050,
+        "y": 1000,
+        "wires": [
+            [
+                "230ed00805089920"
+            ]
+        ]
+    },
+    {
+        "id": "9950803dc8d5e8c5",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Cycle",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1450,
+        "y": 1000,
+        "wires": [
+            [
+                "0ad7cbf4709bdf26"
+            ],
+            [
+                "90ffbbbce19543f3"
+            ]
+        ]
+    },
+    {
+        "id": "0eeae8809b8cce81",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1370,
+        "y": 1100,
+        "wires": [
+            [
+                "230ed00805089920"
+            ]
+        ]
+    },
+    {
+        "id": "90ffbbbce19543f3",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "if on Charger",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.model3_charger",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1690,
+        "y": 960,
+        "wires": [
+            [
+                "c00d45cc8f35fb86"
+            ],
+            [
+                "586f3dae72472132"
+            ]
+        ]
+    },
+    {
+        "id": "2a2c9c1803fe6d93",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Kw Grid",
+        "func": "// Inizio con acquisire i dati di potenza dei vari sensori di inverter wallbox prelievo da rete e invio in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.grid_active_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\n\n// calcolo la potenza da fotovoltaico disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// la potenza del vostro contatore va settata dal sensore \"input_number.electric_meter_power\"\nlet y = w3 + w1 + w2;\n\n// acquisisco il dato del voltaggio corrente che servira per il calcolo della potenza moltiplicandolo per gli ampere \nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\nlet x = 1; // Inizio la sequenza con x = 1 per trovare il valore da settare in ampere per la tesla\n\nwhile (x * w5 < y) {\n    x++;\n}\n\nif (x * w5 > y) {\n    x--; // Preseguo fino a quando x supera y e quindi diminuisco x di una unità\n}\n\nif (x > maxamp) {\n    x = maxamp; // Mi assicuro che il valore minimo di x sia 1\n}\n\nif (x < minamp) {\n    x = minamp; // Mi assicuro che il valore minimo di x non sia minore del min amperaggio consentito\n}\n\nmsg.payload = x; // Setto il valore di x come payload del messaggio e lo passo al nodo successivo\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 840,
+        "wires": [
+            [
+                "d7bce0e6acb7ead3"
+            ]
+        ]
+    },
+    {
+        "id": "fe8b400eeb56f37d",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Check PV Kw",
+        "func": "// Ottengo i valori di potenza dai sensori di fotovoltaico, wallbox, prelievo da rete e immissione in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.input_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"sensor.active_power\"].state');\nvar power4 = global.get('homeassistant.homeAssistant.states[\"sensor.pv_to_grid_kwp\"].state');\nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.power_grid_kwp\"].state');\n\nlet w1 = parseFloat(power1);\nlet w3 = parseFloat(power3);\nlet w4 = parseFloat(power4);\nlet w5 = parseFloat(power5);\n\n// Calcolo la somma delle potenze per avere il netto da fotovoltiaco disponibile\nlet y = w1 - w3 + w4 - w5;\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\n// Ottengo lo stato degli ampere settati in Tesla\nvar ampere1 = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].state');\nlet a1 = parseFloat(ampere1);\n\n// acquisisco il dato del voltaggio corrente che servira per il calcolo della potenza residua disponibile\nvar voltage = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet volt = parseFloat(voltage);\n\n// Calcolo la potenza residua da PV\nlet z = y - volt;\n\n// Verifico le condizioni e setto il payload\nif (z > 0 && z > volt && a1 < maxamp) {\n    msg.payload = 1; // Se z è maggiore di zero e maggiore di volt, imposto payload a 1, cioè ho potenza disponibile dal PV e devo aumentare gli ampere di Tesla\n} else if (z > 0 && z > volt && a1 === maxamp) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z > 0 && z < volt) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z > 0 && z < volt && a1 === maxamp) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z < 0 && a1 === minamp) {\n    msg.payload = 0; // Se z è minore di zero e a1 è 1, imposto payload sempre a 0, ho potenza netta dal PV negativa ma ampere Tesla è già al minimo e quindi non posso diminuirlo ulteriormente\n} else if (z >= - volt && z <= volt) {\n    msg.payload = 0; // Se z è compreso tra x e -x  imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else {\n    msg.payload = 1; // ho potenza netta dal PV negativa e quindi devo ridurre ampere Tesla\n}\n\nmsg.y_payload = y;\nmsg.z_payload = z;\nmsg.v_payload = volt;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 380,
+        "wires": [
+            [
+                "561bdccc2fa2bc70"
+            ]
+        ]
+    },
+    {
+        "id": "e2972f659d9694db",
+        "type": "trigger-state",
+        "z": "ea982a997cb371e7",
+        "name": "Charge Select",
+        "server": "1c37c350.3f926d",
+        "version": 4,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "input_select.tesla_chargemode_select",
+        "entityIdType": "exact",
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is_not",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "Off"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "Off"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": false,
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "86eeeeec1bf9ae72"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a45b6f16acfefd5c",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "name": "On Crg Switch",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.model3_charger"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "c915b7ba1b180ca2"
+            ]
+        ]
+    },
+    {
+        "id": "c51789d9637e5dd3",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "name": "Switch CRG Mode",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PV DLM",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Grid DLM",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Off Peak DLM",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 250,
+        "y": 980,
+        "wires": [
+            [
+                "33ef35b2d1e7577a"
+            ],
+            [
+                "65b3fd16be9d3ea6"
+            ],
+            [
+                "08b8bb3fa78c6aba"
+            ],
+            [
+                "60a8f72d47f603c5"
+            ]
+        ]
+    },
+    {
+        "id": "33ef35b2d1e7577a",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "78d6f3fdf6ca17ac",
+        "name": "Off Crg Switch",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.model3_charger"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1120,
+        "y": 100,
+        "wires": [
+            [
+                "8da54897121589b7"
+            ]
+        ]
+    },
+    {
+        "id": "8da54897121589b7",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "78d6f3fdf6ca17ac",
+        "name": "Select Off CRG mode",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "input_select",
+        "service": "select_option",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "input_select.tesla_chargemode_select"
+        ],
+        "data": "{\"option\":\"Off\"}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1660,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9acee5fbe8b3b043",
+        "type": "trigger-state",
+        "z": "ea982a997cb371e7",
+        "g": "78d6f3fdf6ca17ac",
+        "name": "Crg Select Off",
+        "server": "1c37c350.3f926d",
+        "version": 4,
+        "inputs": 0,
+        "outputs": 2,
+        "exposeAsEntityConfig": "",
+        "entityId": "input_select.tesla_chargemode_select",
+        "entityIdType": "exact",
+        "debugEnabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "propertyValue": "new_state.state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "Off"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "propertyValue": "old_state.state",
+                "comparatorType": "is_not",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "Off"
+            }
+        ],
+        "customOutputs": [],
+        "outputInitially": false,
+        "stateType": "str",
+        "enableInput": false,
+        "x": 650,
+        "y": 80,
+        "wires": [
+            [
+                "33ef35b2d1e7577a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "10bad15e79e3d4c6",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "name": "close gate",
+        "func": "return [[msg,{payload:'close',topic:'control'}]]",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "1503fac63817448b"
+            ]
+        ],
+        "info": "Evita che una volta avviatoil flusso se ne possa avviare un secondo"
+    },
+    {
+        "id": "1503fac63817448b",
+        "type": "gate",
+        "z": "ea982a997cb371e7",
+        "name": "Gate",
+        "controlTopic": "control",
+        "defaultState": "open",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memoryOnly",
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "a45b6f16acfefd5c"
+            ]
+        ]
+    },
+    {
+        "id": "eb7cbcc3446e5c6b",
+        "type": "link in",
+        "z": "ea982a997cb371e7",
+        "name": "Close Gate Tesla",
+        "links": [
+            "d4555f48c037609a",
+            "71ceb2f124fe727e"
+        ],
+        "x": 305,
+        "y": 380,
+        "wires": [
+            [
+                "1503fac63817448b"
+            ]
+        ]
+    },
+    {
+        "id": "071174dc4e911bc9",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "name": "open gate",
+        "func": "return [[msg,{payload:'open',topic:'control'}]]",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2260,
+        "y": 780,
+        "wires": [
+            [
+                "d4555f48c037609a"
+            ]
+        ]
+    },
+    {
+        "id": "d4555f48c037609a",
+        "type": "link out",
+        "z": "ea982a997cb371e7",
+        "name": "Open Gate Tesla",
+        "mode": "link",
+        "links": [
+            "eb7cbcc3446e5c6b"
+        ],
+        "x": 2285,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "6aad8d3ad9c68d7c",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "CRG State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "PV DLM",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1610,
+        "y": 380,
+        "wires": [
+            [
+                "2da4b91d54f78a46"
+            ],
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "e2774d56710addd1",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "if on Charger",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.model3_charger",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1690,
+        "y": 480,
+        "wires": [
+            [
+                "6aad8d3ad9c68d7c"
+            ],
+            [
+                "586f3dae72472132"
+            ]
+        ]
+    },
+    {
+        "id": "586f3dae72472132",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "name": "Select Off CRG mode",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "input_select",
+        "service": "select_option",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "input_select.tesla_chargemode_select"
+        ],
+        "data": "{\"option\":\"Off\"}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 2080,
+        "y": 700,
+        "wires": [
+            [
+                "071174dc4e911bc9"
+            ]
+        ]
+    },
+    {
+        "id": "c00d45cc8f35fb86",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "CRG State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "Grid DLM",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1610,
+        "y": 880,
+        "wires": [
+            [
+                "50a8e3fb9acc4b4f"
+            ],
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "7d4469d99be768e2",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "CRG State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "Grid DLM",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1570,
+        "y": 1200,
+        "wires": [
+            [
+                "dfc170bc2de9c5d9"
+            ],
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "0ad7cbf4709bdf26",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "if on Charger",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.model3_charger",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1570,
+        "y": 1080,
+        "wires": [
+            [
+                "7d4469d99be768e2"
+            ],
+            [
+                "586f3dae72472132"
+            ]
+        ]
+    },
+    {
+        "id": "2904eb081f656bb0",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "CRG State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "PV DLM",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1430,
+        "y": 660,
+        "wires": [
+            [
+                "b1cee771ebdb90d0"
+            ],
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "2274ecd53a3bb076",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "if on Charger",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.model3_charger",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1330,
+        "y": 560,
+        "wires": [
+            [
+                "2904eb081f656bb0"
+            ],
+            [
+                "586f3dae72472132"
+            ]
+        ]
+    },
+    {
+        "id": "86eeeeec1bf9ae72",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "name": "Tesla is at Home",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "home",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "device_tracker.model3_location_tracker",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 340,
+        "y": 40,
+        "wires": [
+            [
+                "69bc85343ddfd922"
+            ],
+            []
+        ],
+        "info": "Evita che l'automazione parta \r\ndurante sessioni di ricariche fuori casa"
+    },
+    {
+        "id": "69bc85343ddfd922",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "name": "Set Amp Value 0",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": true,
+        "domain": "number",
+        "service": "set_value",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "number.model3_charging_amps"
+        ],
+        "data": "{\"value\":0}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "791b62f805f62744"
+            ]
+        ],
+        "info": "Imposta a 0 la potenza di ricarica della Tesla"
+    },
+    {
+        "id": "8d2d115d0f8c8077",
+        "type": "cronplus",
+        "z": "ea982a997cb371e7",
+        "g": "991a8f11ea77a335",
+        "name": "Pool on Sunrise",
+        "outputField": "payload",
+        "timeZone": "",
+        "persistDynamic": false,
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "solar",
+                "expression": "0 30 20 * * *",
+                "location": "38.95349692898102 16.28588925115764",
+                "offset": "15",
+                "solarType": "selected",
+                "solarEvents": "sunrise"
+            }
+        ],
+        "x": 180,
+        "y": 1740,
+        "wires": [
+            [
+                "569531330d30311d"
+            ]
+        ]
+    },
+    {
+        "id": "569531330d30311d",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "991a8f11ea77a335",
+        "name": "Pooling on",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.model3_polling"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 370,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "484f6eaaf6f17475",
+        "type": "cronplus",
+        "z": "ea982a997cb371e7",
+        "g": "991a8f11ea77a335",
+        "name": "Pool off Sunset",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 15 23 * * *",
+                "location": "38.95349692898102 16.28588925115764",
+                "offset": "60",
+                "solarType": "selected",
+                "solarEvents": "sunset"
+            }
+        ],
+        "x": 180,
+        "y": 1800,
+        "wires": [
+            [
+                "42c6b8f982c4171d"
+            ]
+        ]
+    },
+    {
+        "id": "42c6b8f982c4171d",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "991a8f11ea77a335",
+        "name": "Pooling off",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.model3_polling"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 370,
+        "y": 1800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21073dd37b3041fb",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "name": "Wake UP TESLA",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "button",
+        "service": "press",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "button.model3_wake_up"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "a4f9f856f89413cb"
+            ]
+        ]
+    },
+    {
+        "id": "a4f9f856f89413cb",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "15",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "10bad15e79e3d4c6"
+            ]
+        ]
+    },
+    {
+        "id": "791b62f805f62744",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "name": "Pooling on",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.model3_polling"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "21073dd37b3041fb"
+            ]
+        ]
+    },
+    {
+        "id": "60a8f72d47f603c5",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Set 100% Target",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": true,
+        "domain": "input_number",
+        "service": "set_value",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "input_number.tesla_battery_charge_target"
+        ],
+        "data": "{\"value\":100}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 660,
+        "y": 1540,
+        "wires": [
+            [
+                "450e4193f57e62e2"
+            ]
+        ],
+        "info": "Imposta a 0 la potenza di ricarica della Tesla"
+    },
+    {
+        "id": "b202367f768c95e5",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 < s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale, restituisci il messaggio 1\n} else {\n    msg.payload = 1; // Altrimenti, restituisci il messaggio 0\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 1320,
+        "wires": [
+            [
+                "57ad310eb8a6934d"
+            ]
+        ]
+    },
+    {
+        "id": "57ad310eb8a6934d",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1130,
+        "y": 1340,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "a8640bfc859dd599"
+            ]
+        ]
+    },
+    {
+        "id": "a8640bfc859dd599",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "DLM Grid",
+        "func": "// Inizio con acquisire i dati di potenza dei vari sensori di inverter wallbox prelievo da rete e invio in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.grid_active_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\n\n// calcolo la potenza da fotovoltaico disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// potenza contatore settata in HA con il sensore \"input_number.electric_meter_power\"\nlet y = w3 + w1 - w2;\n\n// acquisisco il dato del voltaggio corrente che servira per il calcolo della potenza moltiplicandolo per gli ampere \nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\nlet x = 1; // Inizio la sequenza con x = 1 per trovare il valore da settare in ampere per la tesla\n\nwhile (x * w5 < y) {\n    x++;\n}\n\nif (x * w5 > y) {\n    x--; // Preseguo fino a quando x supera y e quindi diminuisco x di una unità\n}\n\nif (x > maxamp) {\n    x = maxamp; // Mi assicuro che il valore massimo di x sia minore del max amperaggio consentito\n}\n\nif (x < minamp) {\n    x = minamp; // Mi assicuro che il valore minimo di x non sia minore del min amperaggio consentito\n}\n\nmsg.payload = x; // Setto il valore di x come payload del messaggio e lo passo al nodo successivo\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 1740,
+        "wires": [
+            [
+                "1c62699c4d4af925"
+            ]
+        ]
+    },
+    {
+        "id": "1c62699c4d4af925",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Set Amp Value",
+        "server": "1c37c350.3f926d",
+        "version": 5,
+        "debugenabled": true,
+        "domain": "number",
+        "service": "set_value",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "number.model3_charging_amps"
+        ],
+        "data": "{\"value\": payload}",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 900,
+        "y": 1720,
+        "wires": [
+            [
+                "b3b19d5b30126738"
+            ]
+        ]
+    },
+    {
+        "id": "479928d08df148a1",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Check Grid Kw",
+        "func": "// Inizio con acquisire i dati di potenza dei vari sensori di inverter wallbox prelievo da rete e invio in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.grid_active_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\n\n// calcolo la potenza da contatore disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// la potenza w3 contatore va impostata in HA dal sensore da \"input_number.electric_meter_power\"\nlet y = w3 + (w1);\n\n// Ottengo il valore di tensione di rete che serve per il calcolo preciso della potenza di ricarica della Tesla\nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo lo stato degli ampere settati in Tesla\nvar ampere1 = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].state');\nlet a1 = parseFloat(ampere1);\n\n// Calcolo il valore della potenza di 1 ampere Tesla\nlet x = w5 * 1;\n\n// Calcolo la differenza tra potenza residua da contatore e 1 ampere\nlet z = y - x;\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\n// Verifico le condizioni e setto il payload\nif (z > 0 && z > x && a1 < maxamp) {\n    msg.payload = 1; // Se z è maggiore di zero e maggiore di x, imposto payload a 1, cioè ho potenza disponibile dal contatore e devo aumentare gli ampere di Tesla\n} else if (z > 0 && z > x && a1 === maxamp) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z > 0 && z < x) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z > 0 && z < x && a1 === maxamp) {\n    msg.payload = 0; // Se z è maggiore di zero e minore di x, imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else if (z < 0 && a1 === minamp) {\n    msg.payload = 0; // Se z è minore di zero e a1 è 1, imposto payload sempre a 0, ho potenza netta dal contatore negativa ma ampere Tesla è già al minimo e quindi non posso diminuirlo ulteriormente\n} else if (z >= -x && z <= x) {\n    msg.payload = 0; // Se z è compreso tra x e -x  imposto payload a 0, cioè non ho potenza sufficente per aumentare di 1 ampere la carica di Tesla e quindi attendo un ciclo successivo\n} else {\n    msg.payload = 1; // ho potenza netta dal contatore negativa e quindi devo ridurre ampere Tesla\n}\n\n// only for debug\nmsg.y_payload = y;\nmsg.z_payload = z;\nmsg.x_payload = x;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1640,
+        "wires": [
+            [
+                "6198f857bedaa91b"
+            ]
+        ]
+    },
+    {
+        "id": "b3b19d5b30126738",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "35",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1070,
+        "y": 1720,
+        "wires": [
+            [
+                "479928d08df148a1"
+            ]
+        ]
+    },
+    {
+        "id": "6198f857bedaa91b",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Cycle",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1390,
+        "y": 1580,
+        "wires": [
+            [
+                "1bb64c9cf58c433a"
+            ],
+            [
+                "9717656b196f2f7e"
+            ]
+        ]
+    },
+    {
+        "id": "b674aefe0e0b61db",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "35",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1350,
+        "y": 1740,
+        "wires": [
+            [
+                "479928d08df148a1"
+            ]
+        ]
+    },
+    {
+        "id": "9717656b196f2f7e",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "if on Charger",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.model3_charger",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1610,
+        "y": 1480,
+        "wires": [
+            [
+                "aa64162340902deb"
+            ],
+            [
+                "586f3dae72472132"
+            ]
+        ]
+    },
+    {
+        "id": "902c968a66c20502",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Kw Grid",
+        "func": "// Inizio con acquisire i dati di potenza dei vari sensori di inverter wallbox prelievo da rete e invio in rete\nvar power1 = global.get('homeassistant.homeAssistant.states[\"sensor.grid_active_power\"].state');\nvar power2 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_1_power\"].state');\nvar power3 = global.get('homeassistant.homeAssistant.states[\"input_number.electric_meter_power\"].state');\n\nlet w1 = parseFloat(power1);\nlet w2 = parseFloat(power2);\nlet w3 = parseFloat(power3);\n\n\n// calcolo la potenza da fotovoltaico disponibile al netto dei consumi della casa nb. sensor.grid_active_power ha valori negativi in caso di prelievo da rete quindi va sommato e non sottratto\n// la potenza w3 del contatore va impostata in HA dal sensore da \"input_number.electric_meter_power\"\nlet y = w3 + w1 + w2;\n\n// acquisisco il dato del voltaggio corrente che servira per il calcolo della potenza moltiplicandolo per gli ampere \nvar power5 = global.get('homeassistant.homeAssistant.states[\"sensor.wallbox_em_channel_2_voltage\"].state');\nlet w5 = parseFloat(power5);\n\n// Ottengo amperaggio massimo settabile che dipende dalla wallbox o dal carichino\nvar ampmax = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.max');\nlet maxamp = parseFloat(ampmax);\n// amp minimo\nvar ampmin = global.get('homeassistant.homeAssistant.states[\"number.model3_charging_amps\"].attributes.min');\nlet minamp = parseFloat(ampmin);\n\nlet x = 1; // Inizio la sequenza con x = 1 per trovare il valore da settare in ampere per la tesla\n\nwhile (x * w5 < y) {\n    x++;\n}\n\nif (x * w5 > y) {\n    x--; // Preseguo fino a quando x supera y e quindi diminuisco x di una unità\n}\n\nif (x > maxamp) {\n    x = maxamp; // Mi assicuro che il valore massimo di x sia amperaggio massimo settabile\n}\n\nif (x < minamp) {\n    x = minamp; // Mi assicuro che il valore minimo di x non sia minore del min amperaggio consentito\n}\n\nmsg.payload = x; // Setto il valore di x come payload del messaggio e lo passo al nodo successivo\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 1420,
+        "wires": [
+            [
+                "1c62699c4d4af925"
+            ]
+        ]
+    },
+    {
+        "id": "aa64162340902deb",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "CRG State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "Off Peak DLM",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1690,
+        "y": 1400,
+        "wires": [
+            [
+                "c17dd7fbfd8e6dd4"
+            ],
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "99ed4afdcb94585e",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "CRG State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "Off Peak DLM",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1630,
+        "y": 1660,
+        "wires": [
+            [
+                "3b066a8f2afa7daa"
+            ],
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "1bb64c9cf58c433a",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "if on Charger",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.model3_charger",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 1570,
+        "y": 1580,
+        "wires": [
+            [
+                "99ed4afdcb94585e"
+            ],
+            [
+                "586f3dae72472132"
+            ]
+        ]
+    },
+    {
+        "id": "17f6ada1dc20175d",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1690,
+        "y": 1800,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "b674aefe0e0b61db"
+            ]
+        ]
+    },
+    {
+        "id": "3b066a8f2afa7daa",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1500,
+        "y": 1800,
+        "wires": [
+            [
+                "17f6ada1dc20175d"
+            ]
+        ]
+    },
+    {
+        "id": "c17dd7fbfd8e6dd4",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 1320,
+        "wires": [
+            [
+                "2dbe16cb9e96887d"
+            ]
+        ]
+    },
+    {
+        "id": "2dbe16cb9e96887d",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1490,
+        "y": 1320,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "902c968a66c20502"
+            ]
+        ]
+    },
+    {
+        "id": "450e4193f57e62e2",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Off Peak Calc",
+        "func": "var ora_corrente = new Date();\nvar ora_attuale = ora_corrente.getHours();\nvar mezzanotte_oggi = new Date();\nmezzanotte_oggi.setHours(0, 0, 0, 0);\n\n// Ottiene lo stato del sensore binario che controlla se è un working day oppuire è holiday (on oppure off)\nvar isWorkingDay = global.get('homeassistant').homeAssistant.states['binary_sensor.working_day_tariff_f1_f2'].state === 'on';\n\n// Controlla se oggi è un giorno lavorativo o festivo\nif (!isWorkingDay) {\n// Se il giorno è festivo, invia direttamente il payload \"off peak ok\" e attiva la ricarica\n    node.send({ payload: \"off peak ok\" });\n\n// Aggiorna il sensore con tempo scaduto perché è un giorno festivo\n    var tempo_rimanente_format = ('00' + ':' + '00' + ':' + '00');\n    var newMsg = {\n        payload: {\n            state: tempo_rimanente_format,\n            attributes: {\n                countdown: tempo_rimanente_format\n            }\n        }\n    };\n    node.send(newMsg);\n    return msg;\n// Se l'orario attuale è dalle 23:00 alle 24.00 di oggi oppure è compreso tra 24.00 e le 7:00 di oggi autorizza il passaggio del flusso\n} else if ((ora_attuale >= 23 || ora_attuale < 7) && ora_corrente.getTime() >= mezzanotte_oggi.getTime()) {\n    // c\n    node.send({ payload: \"off peak ok\" });\n    var tempo_rimanente_format = ('00' + ':' + '00' + ':' + '00');\n    var newMsg = {\n        payload: {\n            state: tempo_rimanente_format,\n            attributes: {\n                countdown: tempo_rimanente_format\n            }\n        }\n    };\n    node.send(newMsg);\n    return msg;\n} else {\n// Se l'orario attuale non è compreso tra le 23:00 e le 07:00 del giorno corrente calcola il tempo rimanente fino alle 23:00\n    var ora_23 = new Date();\n    ora_23.setHours(23, 0, 0, 0);\n\n    var tempo_corrente = ora_corrente.getTime();\n    var tempo_23 = ora_23.getTime();\n// Calcola il tempo rimanente\n    var tempo_rimanente = tempo_23 - tempo_corrente;\n// Invia il messaggio per avviare la ricarica dopo il tempo_rimanente\n    setTimeout(function () {\n        node.send({ payload: \"off peak ok\" });\n    }, tempo_rimanente);\n// Funzione per aggiornare il tempo rimanente ogni secondo\n    function aggiornaTempoRimanente() {\n        var ora_corrente = new Date();\n        var tempo_corrente = ora_corrente.getTime();\n        var tempo_rimanente = tempo_23 - tempo_corrente;\n// Calcola il tempo rimanente in ore, minuti e secondi\n        var ore_rimanenti = Math.floor(tempo_rimanente / (1000 * 60 * 60));\n        var minuti_rimasti = Math.floor((tempo_rimanente % (1000 * 60 * 60)) / (1000 * 60));\n        var secondi_rimasti = Math.floor((tempo_rimanente % (1000 * 60)) / 1000);\n // Formatta il tempo rimanente nel formato HH:MM:SS\n        var tempo_rimanente_format = ('0' + ore_rimanenti).slice(-2) + ':' + ('0' + minuti_rimasti).slice(-2) + ':' + ('0' + secondi_rimasti).slice(-2);\n // Invia il messaggio al nodo Home Assistant per aggiornare il sensore\n        var newMsg = {\n            payload: {\n                state: tempo_rimanente_format,\n                attributes: {\n                    countdown: tempo_rimanente_format\n                }\n            }\n        };\n        node.send(newMsg);\n    }\n// Invoca la funzione per aggiornare il tempo rimanente ogni secondo\n    setInterval(aggiornaTempoRimanente, 1000);\n\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1440,
+        "wires": [
+            [
+                "50f5a54023540052"
+            ]
+        ]
+    },
+    {
+        "id": "c915b7ba1b180ca2",
+        "type": "api-current-state",
+        "z": "ea982a997cb371e7",
+        "name": "Charge Mode State",
+        "server": "1c37c350.3f926d",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.tesla_chargemode_select",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 330,
+        "y": 540,
+        "wires": [
+            [
+                "c51789d9637e5dd3"
+            ]
+        ]
+    },
+    {
+        "id": "50f5a54023540052",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Time switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off peak ok",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "off peak ok",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 750,
+        "y": 1360,
+        "wires": [
+            [
+                "b202367f768c95e5"
+            ],
+            [
+                "3b094d4fb8e31976"
+            ]
+        ]
+    },
+    {
+        "id": "3b094d4fb8e31976",
+        "type": "ha-sensor",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Charge CountDown",
+        "entityConfig": "2ceeeabdf7f347eb",
+        "version": 0,
+        "state": "tempo_rimanente_format",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "countdown",
+                "value": "tempo_rimanente_format",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 990,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfc170bc2de9c5d9",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 1100,
+        "wires": [
+            [
+                "97f4e8a5a33c1115"
+            ]
+        ]
+    },
+    {
+        "id": "97f4e8a5a33c1115",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1230,
+        "y": 1180,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "0eeae8809b8cce81"
+            ]
+        ]
+    },
+    {
+        "id": "50a8e3fb9acc4b4f",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 780,
+        "wires": [
+            [
+                "e97672a465090d75"
+            ]
+        ]
+    },
+    {
+        "id": "e97672a465090d75",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1350,
+        "y": 900,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "2a2c9c1803fe6d93"
+            ]
+        ]
+    },
+    {
+        "id": "b1cee771ebdb90d0",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 580,
+        "wires": [
+            [
+                "cc35abe72e35f50e"
+            ]
+        ]
+    },
+    {
+        "id": "cc35abe72e35f50e",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1190,
+        "y": 680,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "27347d4f1dce0597"
+            ]
+        ]
+    },
+    {
+        "id": "2da4b91d54f78a46",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Target vs State",
+        "func": "var target = global.get('homeassistant.homeAssistant.states[\"input_number.tesla_battery_charge_target\"].state');\nvar state = global.get('homeassistant.homeAssistant.states[\"sensor.model3_battery\"].state');\n\nlet t1 = parseFloat(target);\nlet s2 = parseFloat(state);\n\nif (t1 <= s2) {\n    msg.payload = 0; // Se la carica target è minore dell'attuale restituisci il messaggio 0 e interrompi la ricarica\n} else {\n    msg.payload = 1; // Se la carica target è maggiore dell'attuale, restituisci il messaggio 1 e prosegui con la ricarica\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 260,
+        "wires": [
+            [
+                "79a63c03437d9d4c"
+            ]
+        ]
+    },
+    {
+        "id": "79a63c03437d9d4c",
+        "type": "switch",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1630,
+        "y": 300,
+        "wires": [
+            [
+                "586f3dae72472132"
+            ],
+            [
+                "65b3fd16be9d3ea6"
+            ]
+        ]
+    },
+    {
+        "id": "11e4be6773e6995e",
+        "type": "catch",
+        "z": "ea982a997cb371e7",
+        "name": "Catch Err",
+        "scope": [
+            "69bc85343ddfd922"
+        ],
+        "uncaught": false,
+        "x": 80,
+        "y": 360,
+        "wires": [
+            [
+                "46920cb12a61a566"
+            ]
+        ]
+    },
+    {
+        "id": "46920cb12a61a566",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "15",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "69bc85343ddfd922"
+            ]
+        ]
+    },
+    {
+        "id": "70f16a7ed7a4d3a7",
+        "type": "catch",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Catch Err",
+        "scope": [
+            "c466154825006b42"
+        ],
+        "uncaught": false,
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "213bf094d32ebf76"
+            ]
+        ]
+    },
+    {
+        "id": "213bf094d32ebf76",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "76477e20de79167a",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "15",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "65b3fd16be9d3ea6"
+            ]
+        ]
+    },
+    {
+        "id": "b9d4eb8562c78eaf",
+        "type": "catch",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Catch Err",
+        "scope": [
+            "d7bce0e6acb7ead3"
+        ],
+        "uncaught": false,
+        "x": 640,
+        "y": 780,
+        "wires": [
+            [
+                "15a48252fdcb537d"
+            ]
+        ]
+    },
+    {
+        "id": "15a48252fdcb537d",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "2696b63567843434",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 780,
+        "wires": [
+            [
+                "2a2c9c1803fe6d93"
+            ]
+        ]
+    },
+    {
+        "id": "c15521c63a4c108d",
+        "type": "catch",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Catch Err",
+        "scope": [
+            "3ca7a6df45c30bd6"
+        ],
+        "uncaught": false,
+        "x": 980,
+        "y": 1560,
+        "wires": [
+            [
+                "ea2d4e9fb7610a33"
+            ]
+        ]
+    },
+    {
+        "id": "ea2d4e9fb7610a33",
+        "type": "delay",
+        "z": "ea982a997cb371e7",
+        "g": "872ca6355a0d38a1",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 1500,
+        "wires": [
+            [
+                "902c968a66c20502"
+            ]
+        ]
+    },
+    {
+        "id": "1c37c350.3f926d",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 5,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": "30",
+        "areaSelector": "id",
+        "deviceSelector": "id",
+        "entitySelector": "id",
+        "statusSeparator": "at: ",
+        "statusYear": "hidden",
+        "statusMonth": "short",
+        "statusDay": "numeric",
+        "statusHourCycle": "h23",
+        "statusTimeFormat": "h:m",
+        "enableGlobalContextStore": true
+    },
+    {
+        "id": "2ceeeabdf7f347eb",
+        "type": "ha-entity-config",
+        "server": "1c37c350.3f926d",
+        "deviceConfig": "f6461edf5aeac603",
+        "name": "Charge Countdown",
+        "version": "6",
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Charge Countdown"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "f6461edf5aeac603",
+        "type": "ha-device-config",
+        "name": "Charge CountDown",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "",
+        "swVersion": ""
+    }
+]
