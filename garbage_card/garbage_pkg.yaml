@@ -1,0 +1,134 @@
+# new garbage package
+template:
+# Organico
+  - sensor:
+      - name: "Organico Calendar"
+        state: "{{ min((as_local(as_datetime(state_attr('calendar.umido', 'start_time'))) - today_at('00:00')).days, 2) }}"
+        unique_id: organico_calendar
+        unit_of_measurement: "D"
+        icon: mdi:trash-can
+        attributes:
+          days: "{{ (as_local(as_datetime(state_attr('calendar.umido', 'start_time'))) - today_at('00:00')).days }}"
+          next_date: "{{ as_local(as_datetime(state_attr('calendar.umido', 'start_time'))).isoformat() }}"
+  - sensor:
+      - name: "Organico"
+        unique_id: organico
+        state: >-
+          {% set days = state_attr('sensor.organico_calendar','days') %}
+          {% if days == 0 %}
+            Oggi!
+          {% elif days == 1 %}
+            Domani
+          {% else %}
+            Tra {{ days }} Giorni
+          {% endif %}
+# Plastica
+  - sensor:
+      - name: "Plastica Calendar"
+        state: "{{ min((as_local(as_datetime(state_attr('calendar.plastica', 'start_time'))) - today_at('00:00')).days, 2) }}"
+        unique_id: plastica_calendar
+        unit_of_measurement: "D"
+        icon: mdi:trash-can
+        attributes:
+          days: "{{ (as_local(as_datetime(state_attr('calendar.plastica', 'start_time'))) - today_at('00:00')).days }}"
+          next_date: "{{ as_local(as_datetime(state_attr('calendar.plastica', 'start_time'))).isoformat() }}"
+  - sensor:
+      - name: "Plastica"
+        unique_id: plastica
+        state: >-
+          {% set days = state_attr('sensor.plastica_calendar','days') %}
+          {% if days == 0 %}
+            Oggi!
+          {% elif days == 1 %}
+            Domani
+          {% else %}
+            Tra {{ days }} Giorni
+          {% endif %}
+# Indifferenziata
+  - sensor:
+      - name: "Indifferenziata Calendar"
+        state: "{{ min((as_local(as_datetime(state_attr('calendar.indifferenziata', 'start_time'))) - today_at('00:00')).days, 2) }}"
+        unique_id: indifferenziata_calendar
+        unit_of_measurement: "D"
+        icon: mdi:trash-can
+        attributes:
+          days: "{{ (as_local(as_datetime(state_attr('calendar.indifferenziata', 'start_time'))) - today_at('00:00')).days }}"
+          next_date: "{{ as_local(as_datetime(state_attr('calendar.indifferenziata', 'start_time'))).isoformat() }}"
+  - sensor:
+      - name: "Indifferenziata"
+        unique_id: indifferenziata
+        state: >-
+          {% set days = state_attr('sensor.indifferenziata_calendar','days') %}
+          {% if days == 0 %}
+            Oggi!
+          {% elif days == 1 %}
+            Domani
+          {% else %}
+            Tra {{ days }} Giorni
+          {% endif %}
+# Vetro
+  - sensor:
+      - name: "Vetro Calendar"
+        state: "{{ min((as_local(as_datetime(state_attr('calendar.vetro', 'start_time'))) - today_at('00:00')).days, 2) }}"
+        unique_id: vetro_calendar
+        unit_of_measurement: "D"
+        icon: mdi:trash-can
+        attributes:
+          days: "{{ (as_local(as_datetime(state_attr('calendar.vetro', 'start_time'))) - today_at('00:00')).days }}"
+          next_date: "{{ as_local(as_datetime(state_attr('calendar.vetro', 'start_time'))).isoformat() }}"
+  - sensor:
+      - name: "Vetro"
+        unique_id: vetro
+        state: >-
+          {% set days = state_attr('sensor.vetro_calendar','days') %}
+          {% if days == 0 %}
+            Oggi!
+          {% elif days == 1 %}
+            Domani
+          {% else %}
+            Tra {{ days }} Giorni
+          {% endif %}
+# Carta
+  - sensor:
+      - name: "Carta Calendar"
+        state: "{{ min((as_local(as_datetime(state_attr('calendar.carta', 'start_time'))) - today_at('00:00')).days, 2) }}"
+        unique_id: carta_calendar
+        unit_of_measurement: "D"
+        icon: mdi:trash-can
+        attributes:
+          days: "{{ (as_local(as_datetime(state_attr('calendar.carta', 'start_time'))) - today_at('00:00')).days }}"
+          next_date: "{{ as_local(as_datetime(state_attr('calendar.carta', 'start_time'))).isoformat() }}"
+  - sensor:
+      - name: "Carta"
+        unique_id: carta
+        state: >-
+          {% set days = state_attr('sensor.carta_calendar','days') %}
+          {% if days == 0 %}
+            Oggi!
+          {% elif days == 1 %}
+            Domani
+          {% else %}
+            Tra {{ days }} Giorni
+          {% endif %}
+# Metalli
+  - sensor:
+      - name: "Metalli Calendar"
+        state: "{{ min((as_local(as_datetime(state_attr('calendar.metalli', 'start_time'))) - today_at('00:00')).days, 2) }}"
+        unique_id: metalli_calendar
+        unit_of_measurement: "D"
+        icon: mdi:trash-can
+        attributes:
+          days: "{{ (as_local(as_datetime(state_attr('calendar.metalli', 'start_time'))) - today_at('00:00')).days }}"
+          next_date: "{{ as_local(as_datetime(state_attr('calendar.metalli', 'start_time'))).isoformat() }}"
+  - sensor:
+      - name: "Metalli"
+        unique_id: metalli
+        state: >-
+          {% set days = state_attr('sensor.metalli_calendar','days') %}
+          {% if days == 0 %}
+            Oggi!
+          {% elif days == 1 %}
+            Domani
+          {% else %}
+            Tra {{ days }} Giorni
+          {% endif %}
