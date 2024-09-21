@@ -1,4 +1,5 @@
 ######## DLM Tesla Charge sensors ########
+# All the sensors necessary for Node-RED flows will be described below #
 ###### START Preconfigured sensors not to be touched #####
 # Define input_select_charger_mode_tesla #
 input_select:
@@ -10,12 +11,13 @@ input_select:
       - "PV DLM"
       - "Grid DLM"
       - "Off Peak DLM"
+      - "Inverter DLM"
     icon: mdi:car-electric-outline
 # Define input select Power of home electric meter #
 input_number:
   electric_meter_power:
     name: Electric Meter Power
-    min: 500
+    min: 0
     max: 10000
     step: 100
     unit_of_measurement: W
@@ -28,4 +30,104 @@ input_number:
     step: 1
     unit_of_measurement: "%"
     icon: mdi:battery-charging
+# Define input select Power of home electric meter #
+  inverter_max_power:
+    name: Inverter Max Power
+    min: 0
+    max: 10000
+    step: 100
+    unit_of_measurement: W
+    icon: mdi:solar-power
+# Define input select Huawei Luna2000 SOC Target discharge #
+  luna2000_soc_target:
+    name: Luna2000 SOC Target discharge
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:battery-charging
 ###### END Preconfigured sensors not to be touched #####
+########################################################
+###### Sensors must be configured by the user in each power n. "x" sensor state line. For example, in the line 45: {{ '%.0f' | format(states('sensor.input_power') | float ) }}, users should replace 'sensor.input_power' with their own sensor entities #####
+template:
+###### DLM PV Sensors #####
+# power 1: this is the power of PV plant #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 1"
+        unique_id: tesla_dlm_input_power_n_1
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.0f' | format(states('sensor.input_power') | float ) }}
+# power 2: this is the power of wallbox #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 2"
+        unique_id: tesla_dlm_input_power_n_2
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.1f' | format(states('sensor.wallbox_em_channel_1_power') | float ) }}
+# power 3: this is the output power of inveter #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 3"
+        unique_id: tesla_dlm_input_power_n_3
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.0f' | format(states('sensor.active_power') | float ) }}
+# power 4: this is the power fed to the grid #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 4"
+        unique_id: tesla_dlm_input_power_n_4
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.0f' | format(states('sensor.pv_to_grid_kwp') | float ) }}
+# power 8: this is the power drawn from the grid #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 8"
+        unique_id: tesla_dlm_input_power_n_8
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.0f' | format(states('sensor.power_grid_kwp') | float ) }}
+# power 5a: this is the current voltage of the wallbox #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 5a"
+        unique_id: tesla_dlm_input_power_n_5a
+        unit_of_measurement: "V"
+        device_class: voltage
+        state: >-
+          {{ '%.1f' | format(states('sensor.wallbox_em_channel_2_voltage') | float ) }}
+###### DLM Grid Sensors #####
+# power 1: this is the power from grid #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 1a"
+        unique_id: tesla_dlm_input_power_n_1a
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.0f' | format(states('sensor.grid_active_power') | float ) }}
+# power 5b: this is the output power of inveter #
+  - sensor:
+      - name: "Tesla DLM Input Power n. 5b"
+        unique_id: tesla_dlm_input_power_n_5b
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >-
+          {{ '%.0f' | format(states('sensor.grid_active_power') | float ) }}
+
+###### Sensors created by the Tesla/Home Assistant integration will need to be recreated or edited if they are not present or if you have changed the name or ID of the sensor created by the integration ######
+# device_tracker.location_tracker = is the sensor tracking the car's location, created by the Tesla integration. The check is to prevent the workflow from initiating if the car is not at home, indicating that a public charging station is being used instead
+# number.charging.amps = Set input number Charging Ampere
+# button.wake_up = wake up Tesla from deep standby
+# switch.charher = Charger Switch
+# sensor.battery = Tesla Battery SOC
+# binary_sensor.working_day_tariff_f1_f2 = "off" if time is in range of a F3 tariff, sensor is controlled by the HA workday integration that you can find here https://www.home-assistant.io/integrations/workday
