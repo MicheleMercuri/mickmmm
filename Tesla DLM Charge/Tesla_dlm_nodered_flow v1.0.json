@@ -33,8 +33,7 @@
             "2da4b91d54f78a46",
             "79a63c03437d9d4c",
             "70f16a7ed7a4d3a7",
-            "213bf094d32ebf76",
-            "911901106a2142f2"
+            "213bf094d32ebf76"
         ],
         "x": 554,
         "y": 219,
@@ -223,10 +222,7 @@
             "b99ad8f443aa101f",
             "12894e543719de88",
             "7cf1c8ae58a5946c",
-            "b6dafdda901e5531",
-            "d1cf7f4569cedf0b",
-            "71a43fea19895fd9",
-            "44208d9d41ae8eec"
+            "b6dafdda901e5531"
         ],
         "x": 554,
         "y": 1939,
@@ -250,8 +246,7 @@
         "y": 500,
         "wires": [
             [
-                "c466154825006b42",
-                "911901106a2142f2"
+                "c466154825006b42"
             ]
         ]
     },
@@ -262,7 +257,7 @@
         "g": "76477e20de79167a",
         "name": "Set Amp Value 1",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": true,
         "action": "number.set_value",
         "floorId": [],
@@ -278,6 +273,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "number",
         "service": "set_value",
         "x": 980,
@@ -402,7 +398,7 @@
         "g": "2696b63567843434",
         "name": "Set Amp Value 2",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": true,
         "action": "number.set_value",
         "floorId": [],
@@ -418,6 +414,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "number",
         "service": "set_value",
         "x": 840,
@@ -682,7 +679,7 @@
         "z": "ea982a997cb371e7",
         "name": "On Crg Switch",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "switch.turn_on",
         "floorId": [],
@@ -698,13 +695,14 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "switch",
         "service": "turn_on",
         "x": 320,
         "y": 480,
         "wires": [
             [
-                "c915b7ba1b180ca2"
+                "a6edcf7f9430c020"
             ]
         ]
     },
@@ -745,7 +743,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 5,
-        "x": 250,
+        "x": 370,
         "y": 980,
         "wires": [
             [
@@ -772,7 +770,7 @@
         "g": "78d6f3fdf6ca17ac",
         "name": "Off Crg Switch",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "switch.turn_off",
         "floorId": [],
@@ -788,6 +786,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "switch",
         "service": "turn_off",
         "x": 1120,
@@ -805,7 +804,7 @@
         "g": "78d6f3fdf6ca17ac",
         "name": "Select Off CRG mode",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "input_select.select_option",
         "floorId": [],
@@ -821,6 +820,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "input_select",
         "service": "select_option",
         "x": 1660,
@@ -1077,7 +1077,7 @@
         "z": "ea982a997cb371e7",
         "name": "Select Off CRG mode",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "input_select.select_option",
         "floorId": [],
@@ -1093,6 +1093,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "input_select",
         "service": "select_option",
         "x": 2080,
@@ -1395,7 +1396,7 @@
         "z": "ea982a997cb371e7",
         "name": "Set Amp Value 0",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": true,
         "action": "number.set_value",
         "floorId": [],
@@ -1411,6 +1412,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "number",
         "service": "set_value",
         "x": 140,
@@ -1463,7 +1465,7 @@
         "g": "991a8f11ea77a335",
         "name": "Pooling on",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "switch.turn_on",
         "floorId": [],
@@ -1479,6 +1481,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "switch",
         "service": "turn_on",
         "x": 370,
@@ -1529,7 +1532,7 @@
         "g": "991a8f11ea77a335",
         "name": "Pooling off",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "switch.turn_off",
         "floorId": [],
@@ -1545,6 +1548,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "switch",
         "service": "turn_off",
         "x": 370,
@@ -1559,7 +1563,7 @@
         "z": "ea982a997cb371e7",
         "name": "Force Wake UP",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "button.press",
         "floorId": [],
@@ -1575,6 +1579,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "button",
         "service": "press",
         "x": 380,
@@ -1616,7 +1621,7 @@
         "z": "ea982a997cb371e7",
         "name": "Pooling on",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "switch.turn_on",
         "floorId": [],
@@ -1632,6 +1637,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "switch",
         "service": "turn_on",
         "x": 370,
@@ -1649,7 +1655,7 @@
         "g": "872ca6355a0d38a1",
         "name": "Set 100% Target",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": true,
         "action": "input_number.set_value",
         "floorId": [],
@@ -1665,6 +1671,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "input_number",
         "service": "set_value",
         "x": 660,
@@ -1759,7 +1766,7 @@
         "g": "872ca6355a0d38a1",
         "name": "Set Amp Value",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": true,
         "action": "number.set_value",
         "floorId": [],
@@ -1775,6 +1782,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "number",
         "service": "set_value",
         "x": 900,
@@ -2272,8 +2280,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 330,
-        "y": 540,
+        "x": 270,
+        "y": 780,
         "wires": [
             [
                 "c51789d9637e5dd3"
@@ -3242,8 +3250,7 @@
         "y": 2160,
         "wires": [
             [
-                "685956c5c14e0536",
-                "d1cf7f4569cedf0b"
+                "685956c5c14e0536"
             ]
         ]
     },
@@ -3254,7 +3261,7 @@
         "g": "7df3c6c8409496ad",
         "name": "Set Amp Value 2",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": true,
         "action": "number.set_value",
         "floorId": [],
@@ -3270,6 +3277,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "number",
         "service": "set_value",
         "x": 840,
@@ -3297,8 +3305,7 @@
         "y": 2200,
         "wires": [
             [
-                "536253ba45a75be2",
-                "71a43fea19895fd9"
+                "536253ba45a75be2"
             ]
         ]
     },
@@ -3453,8 +3460,7 @@
         "y": 2040,
         "wires": [
             [
-                "685956c5c14e0536",
-                "44208d9d41ae8eec"
+                "685956c5c14e0536"
             ]
         ]
     },
@@ -3853,67 +3859,13 @@
         ]
     },
     {
-        "id": "d1cf7f4569cedf0b",
-        "type": "debug",
-        "z": "ea982a997cb371e7",
-        "g": "7df3c6c8409496ad",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": false,
-        "console": true,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "y_payload",
-        "statusType": "msg",
-        "x": 770,
-        "y": 2320,
-        "wires": []
-    },
-    {
-        "id": "71a43fea19895fd9",
-        "type": "debug",
-        "z": "ea982a997cb371e7",
-        "g": "7df3c6c8409496ad",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "y_payload",
-        "statusType": "msg",
-        "x": 1210,
-        "y": 2140,
-        "wires": []
-    },
-    {
-        "id": "44208d9d41ae8eec",
-        "type": "debug",
-        "z": "ea982a997cb371e7",
-        "g": "7df3c6c8409496ad",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "y_payload",
-        "statusType": "msg",
-        "x": 890,
-        "y": 2100,
-        "wires": []
-    },
-    {
         "id": "814b5d0ad33a7140",
         "type": "api-call-service",
         "z": "ea982a997cb371e7",
         "g": "a3f03d3233b68fde",
         "name": "Send Telegram MSG",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "telegram_bot.send_message",
         "floorId": [],
@@ -3927,6 +3879,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "telegram_bot",
         "service": "send_message",
         "x": 1060,
@@ -3942,7 +3895,7 @@
         "g": "a3f03d3233b68fde",
         "name": "Select Off CRG mode",
         "server": "1c37c350.3f926d",
-        "version": 6,
+        "version": 7,
         "debugenabled": false,
         "action": "input_select.select_option",
         "floorId": [],
@@ -3958,6 +3911,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
+        "blockInputOverrides": false,
         "domain": "input_select",
         "service": "select_option",
         "x": 1040,
@@ -3969,21 +3923,136 @@
         ]
     },
     {
-        "id": "911901106a2142f2",
-        "type": "debug",
+        "id": "a6edcf7f9430c020",
+        "type": "api-get-history",
         "z": "ea982a997cb371e7",
-        "g": "76477e20de79167a",
-        "name": "debug 11",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 840,
-        "y": 500,
-        "wires": []
+        "name": "Last CRG 100%",
+        "server": "1c37c350.3f926d",
+        "version": 1,
+        "startDate": "",
+        "endDate": "",
+        "entityId": "sensor.model3_battery",
+        "entityIdType": "equals",
+        "useRelativeTime": true,
+        "relativeTime": "2w",
+        "flatten": true,
+        "outputType": "array",
+        "outputLocationType": "msg",
+        "outputLocation": "payload",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "bda9ae7dd7947cfe"
+            ]
+        ]
+    },
+    {
+        "id": "bda9ae7dd7947cfe",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "name": "History 100% crg",
+        "func": "let historyData = msg.payload;\n\n// Filtra carica \"100%\" dall'history del sensore\nlet fullChargeEvents = historyData.filter(entry => entry.state === \"100\");\n\n// Conta quante volte è stato raggiunto il 100%\nlet count = fullChargeEvents.length;\n\nlet dateTime = null;\nlet chargeStatus = \"Must charge 100%\";\nlet daysRemaining = 7;\n\n// Verifica se è stata trovata almeno una ricarica 100%\nif (count > 0) {\n\n    let lastFullChargeEvent = fullChargeEvents[fullChargeEvents.length - 1];\n    dateTime = lastFullChargeEvent.last_changed;\n    let currentDate = new Date();\n    let sevenDaysAgo = new Date();\n    sevenDaysAgo.setDate(currentDate.getDate() - 7);\n\n    let recentFullChargeEvents = fullChargeEvents.filter(event => new Date(event.last_changed) >= sevenDaysAgo);\n\n    if (recentFullChargeEvents.length > 0) {\n        chargeStatus = \"100% charge ok\";\n    }\n\n    // Calcola la differenza in giorni dall'ultima carica al 100%\n    let lastFullChargeDate = new Date(lastFullChargeEvent.last_changed);\n    let diffTime = Math.abs(currentDate.getTime() - lastFullChargeDate.getTime());\n    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));\n\n    // Calcola quanti giorni mancano per la prossima ricarica al 100%\n    daysRemaining = Math.max(7 - diffDays, 0);\n}\n\n// Formatto count per visualizzarlo con due cifre\nlet countFormatted = count.toString().padStart(2, '0');\n\n// dati per attributi del sensore di verifica carica 100%\nmsg.payload = {\n    date_time: dateTime,  // Data e ora dell'ultima carica al 100%,\n    count: countFormatted,  // Numero di volte in cui è stata carica al 100%, formattato a due cifre\n    weekly_charge_status: chargeStatus,  // Stato del controllo settimanale\n    days_remaining: daysRemaining  // Giorni mancanti per la prossima ricarica al 100%\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 620,
+        "wires": [
+            [
+                "ec1b2e19b38154ae"
+            ]
+        ]
+    },
+    {
+        "id": "ec1b2e19b38154ae",
+        "type": "ha-sensor",
+        "z": "ea982a997cb371e7",
+        "name": "Tesla 100% 1w",
+        "entityConfig": "d4cf3d0a8a999939",
+        "version": 0,
+        "state": "payload.date_time",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "count",
+                "value": "payload.count",
+                "valueType": "msg"
+            },
+            {
+                "property": "weekly_charge_status",
+                "value": "payload.weekly_charge_status",
+                "valueType": "msg"
+            },
+            {
+                "property": "days_remaining",
+                "value": "payload.days_remaining",
+                "valueType": "msg"
+            }
+        ],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 360,
+        "y": 560,
+        "wires": [
+            [
+                "c06a8e7dc27d8aa4"
+            ]
+        ]
+    },
+    {
+        "id": "c06a8e7dc27d8aa4",
+        "type": "function",
+        "z": "ea982a997cb371e7",
+        "name": "select CRG target",
+        "func": "// Ottieni lo stato 'weekly_charge_status' dal payload del nodo sensor precedente\nlet weeklyChargeStatus = msg.payload.weekly_charge_status;\n\n// Imposta il valore dell'input_number in base al weekly_charge_status\nif (weeklyChargeStatus === \"100% charge ok\") {\n    // Imposta input_number.tesla_battery_charge_target a 80\n    msg.payload = 80;\n} else if (weeklyChargeStatus === \"Must charge 100%\") {\n    // Imposta input_number.tesla_battery_charge_target a 100\n    msg.payload = 100;\n} else {\n    // Valore di default nel caso non corrisponda a nessuna delle condizioni\n    msg.payload = 0;\n}\n\n// Restituisci il messaggio per essere utilizzato nel nodo successivo\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "8ed5a2217c950e28"
+            ]
+        ]
+    },
+    {
+        "id": "8ed5a2217c950e28",
+        "type": "api-call-service",
+        "z": "ea982a997cb371e7",
+        "name": "Set Charge 1W",
+        "server": "1c37c350.3f926d",
+        "version": 7,
+        "debugenabled": false,
+        "action": "input_number.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "labelId": [],
+        "data": "{\"entity_id\":\"input_number.tesla_battery_charge_target\",\"value\":\"{{ payload }}\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "input_number",
+        "service": "set_value",
+        "x": 140,
+        "y": 700,
+        "wires": [
+            [
+                "c915b7ba1b180ca2"
+            ]
+        ]
     },
     {
         "id": "1c37c350.3f926d",
@@ -4057,9 +4126,59 @@
         "sunPositions": []
     },
     {
+        "id": "d4cf3d0a8a999939",
+        "type": "ha-entity-config",
+        "server": "1c37c350.3f926d",
+        "deviceConfig": "67f77f426864dada",
+        "name": "Tesla 100% 1w",
+        "version": "6",
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Tesla 100% 1w"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_picture",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
         "id": "f6461edf5aeac603",
         "type": "ha-device-config",
         "name": "Charge CountDown",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "",
+        "swVersion": ""
+    },
+    {
+        "id": "67f77f426864dada",
+        "type": "ha-device-config",
+        "name": "Tesla 100% 1w",
         "hwVersion": "",
         "manufacturer": "Node-RED",
         "model": "",
