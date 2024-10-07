@@ -10,3 +10,10 @@ The setup uses Node-RED to create dynamic responses based on sensor data, and se
 A Mushroom card shows up de dispenser status on Lovelace in HA.
 
 ![Screenshot 2024-10-07 085649](https://github.com/user-attachments/assets/d834bf48-7162-414b-89bb-4d7eb8e694ca)
+
+This is an example of Alexa Media reply:
+
+
+
+https://github.com/user-attachments/assets/681761cf-48bf-4e20-8fe6-4c91cdf1ba70
+
