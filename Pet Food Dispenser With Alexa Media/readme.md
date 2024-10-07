@@ -1,0 +1,1 @@
+This repository contains Node-RED flows and configuration files that enable complex automations for Home Assistant. The automation focuses on monitoring and managing the feeding of "Ciccio" using a smart food dispenser integrated with Home Assistant. The setup uses Node-RED to create dynamic responses based on sensor data, and sends notifications through Alexa.
