@@ -1,4 +1,5 @@
-This repository contains Node-RED flows and configuration of a mushroom card for Home Assistant to show up a pet dispenser status ad n. feeding in a day. 
+This repository contains Node-RED flows and configuration of a mushroom card for Home Assistant to show up a pet dispenser status ad n° feeding in a day. 
+
 ![71WGhm2ZE2L __AC_SX300_SY300_QL70_ML2_](https://github.com/user-attachments/assets/46fc1b54-3abe-4e3e-b1bc-af563d01062f)
 
 The automation focuses on monitoring the feeding of my cat using a smart food dispenser integrated with Home Assistant. 
