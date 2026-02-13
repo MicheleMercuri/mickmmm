@@ -1,1 +1,1 @@
-This is a collection of my automations and Home Assistant dashboards.
+This is a collection of my automations, script and Home Assistant dashboards.
